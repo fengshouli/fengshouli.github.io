@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>springboot源码解析(一):启动过程 | 冯手力-java学习之路</title>
-    <meta name="generator" content="VuePress 1.8.2">
+    <meta name="generator" content="VuePress 1.9.10">
     
     <meta name="description" content="">
     
-    <link rel="preload" href="/assets/css/0.styles.61dcc82f.css" as="style"><link rel="preload" href="/assets/js/app.344ee7b6.js" as="script"><link rel="preload" href="/assets/js/2.69edca9d.js" as="script"><link rel="preload" href="/assets/js/66.dcb573d1.js" as="script"><link rel="prefetch" href="/assets/js/10.7ceb2050.js"><link rel="prefetch" href="/assets/js/11.ffdccf9c.js"><link rel="prefetch" href="/assets/js/12.43f46374.js"><link rel="prefetch" href="/assets/js/13.42ecee11.js"><link rel="prefetch" href="/assets/js/14.5a93f313.js"><link rel="prefetch" href="/assets/js/15.f3496a71.js"><link rel="prefetch" href="/assets/js/16.b926b7f3.js"><link rel="prefetch" href="/assets/js/17.e88e1228.js"><link rel="prefetch" href="/assets/js/18.77759525.js"><link rel="prefetch" href="/assets/js/19.f97b8431.js"><link rel="prefetch" href="/assets/js/20.037b7add.js"><link rel="prefetch" href="/assets/js/21.7425b3b7.js"><link rel="prefetch" href="/assets/js/22.bc8ed57f.js"><link rel="prefetch" href="/assets/js/23.6bf8baa4.js"><link rel="prefetch" href="/assets/js/24.0e03f34c.js"><link rel="prefetch" href="/assets/js/25.1b298e4d.js"><link rel="prefetch" href="/assets/js/26.f5873ac6.js"><link rel="prefetch" href="/assets/js/27.af341781.js"><link rel="prefetch" href="/assets/js/28.b0d9a3c5.js"><link rel="prefetch" href="/assets/js/29.86be6f44.js"><link rel="prefetch" href="/assets/js/3.b7b3c185.js"><link rel="prefetch" href="/assets/js/30.e2791bbd.js"><link rel="prefetch" href="/assets/js/31.c02a992e.js"><link rel="prefetch" href="/assets/js/32.a6826f1b.js"><link rel="prefetch" href="/assets/js/33.1b5361c0.js"><link rel="prefetch" href="/assets/js/34.778a2696.js"><link rel="prefetch" href="/assets/js/35.214533a9.js"><link rel="prefetch" href="/assets/js/36.5a70b655.js"><link rel="prefetch" href="/assets/js/37.b3ba7391.js"><link rel="prefetch" href="/assets/js/38.beaec89d.js"><link rel="prefetch" href="/assets/js/39.03f6812e.js"><link rel="prefetch" href="/assets/js/4.febbe774.js"><link rel="prefetch" href="/assets/js/40.224f70f4.js"><link rel="prefetch" href="/assets/js/41.144ac245.js"><link rel="prefetch" href="/assets/js/42.30246097.js"><link rel="prefetch" href="/assets/js/43.746c1b50.js"><link rel="prefetch" href="/assets/js/44.f45dbed3.js"><link rel="prefetch" href="/assets/js/45.f7f1e23c.js"><link rel="prefetch" href="/assets/js/46.ef4e4f0b.js"><link rel="prefetch" href="/assets/js/47.416b186b.js"><link rel="prefetch" href="/assets/js/48.e6f243de.js"><link rel="prefetch" href="/assets/js/49.2b4fadb0.js"><link rel="prefetch" href="/assets/js/5.4af34d69.js"><link rel="prefetch" href="/assets/js/50.b1309d10.js"><link rel="prefetch" href="/assets/js/51.d8de73c7.js"><link rel="prefetch" href="/assets/js/52.568c4d1e.js"><link rel="prefetch" href="/assets/js/53.902459fd.js"><link rel="prefetch" href="/assets/js/54.c1858ace.js"><link rel="prefetch" href="/assets/js/55.d0d8a2d4.js"><link rel="prefetch" href="/assets/js/56.fc438c78.js"><link rel="prefetch" href="/assets/js/57.2a0b9195.js"><link rel="prefetch" href="/assets/js/58.8e1bdcd3.js"><link rel="prefetch" href="/assets/js/59.4c73c37d.js"><link rel="prefetch" href="/assets/js/6.3859aaa4.js"><link rel="prefetch" href="/assets/js/60.5efb25e1.js"><link rel="prefetch" href="/assets/js/61.baf237b0.js"><link rel="prefetch" href="/assets/js/62.d112df43.js"><link rel="prefetch" href="/assets/js/63.97f8ea1b.js"><link rel="prefetch" href="/assets/js/64.01e7b3e4.js"><link rel="prefetch" href="/assets/js/65.782bc332.js"><link rel="prefetch" href="/assets/js/67.da1cc105.js"><link rel="prefetch" href="/assets/js/68.74574f24.js"><link rel="prefetch" href="/assets/js/69.95a07dce.js"><link rel="prefetch" href="/assets/js/7.f9fbba06.js"><link rel="prefetch" href="/assets/js/70.32d574d3.js"><link rel="prefetch" href="/assets/js/71.88ddf6b8.js"><link rel="prefetch" href="/assets/js/72.72cf3839.js"><link rel="prefetch" href="/assets/js/73.28980e3d.js"><link rel="prefetch" href="/assets/js/74.d9542062.js"><link rel="prefetch" href="/assets/js/75.af48dd98.js"><link rel="prefetch" href="/assets/js/76.15edae5a.js"><link rel="prefetch" href="/assets/js/77.0cb1e006.js"><link rel="prefetch" href="/assets/js/78.2bfe6946.js"><link rel="prefetch" href="/assets/js/79.3a1f7f45.js"><link rel="prefetch" href="/assets/js/8.59661420.js"><link rel="prefetch" href="/assets/js/80.a508a4a0.js"><link rel="prefetch" href="/assets/js/81.7396cc06.js"><link rel="prefetch" href="/assets/js/82.1ae7918c.js"><link rel="prefetch" href="/assets/js/83.c3ab5cec.js"><link rel="prefetch" href="/assets/js/9.0718215f.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.61dcc82f.css">
+    <link rel="preload" href="/assets/css/0.styles.49d708b7.css" as="style"><link rel="preload" href="/assets/js/app.62c6e314.js" as="script"><link rel="preload" href="/assets/js/2.25c8d47f.js" as="script"><link rel="preload" href="/assets/js/1.b29eacc6.js" as="script"><link rel="preload" href="/assets/js/73.6cc22a46.js" as="script"><link rel="prefetch" href="/assets/js/10.195cdeba.js"><link rel="prefetch" href="/assets/js/11.9af88e34.js"><link rel="prefetch" href="/assets/js/12.d121fe60.js"><link rel="prefetch" href="/assets/js/13.514b3db7.js"><link rel="prefetch" href="/assets/js/14.188d50de.js"><link rel="prefetch" href="/assets/js/15.6ee9c62e.js"><link rel="prefetch" href="/assets/js/16.a0cf50b5.js"><link rel="prefetch" href="/assets/js/17.74775d8e.js"><link rel="prefetch" href="/assets/js/18.7f155701.js"><link rel="prefetch" href="/assets/js/19.4d05babc.js"><link rel="prefetch" href="/assets/js/20.c24c01cd.js"><link rel="prefetch" href="/assets/js/21.d1b55a83.js"><link rel="prefetch" href="/assets/js/22.b805374e.js"><link rel="prefetch" href="/assets/js/23.f41bca40.js"><link rel="prefetch" href="/assets/js/24.bc51d9f1.js"><link rel="prefetch" href="/assets/js/25.e2a42315.js"><link rel="prefetch" href="/assets/js/26.eb0640b8.js"><link rel="prefetch" href="/assets/js/27.fe40cbf9.js"><link rel="prefetch" href="/assets/js/28.d516add2.js"><link rel="prefetch" href="/assets/js/29.123f737d.js"><link rel="prefetch" href="/assets/js/3.fe5e78bc.js"><link rel="prefetch" href="/assets/js/30.d860fd76.js"><link rel="prefetch" href="/assets/js/31.74ae78d2.js"><link rel="prefetch" href="/assets/js/32.0b2ccb81.js"><link rel="prefetch" href="/assets/js/33.5bf8293a.js"><link rel="prefetch" href="/assets/js/34.726f184a.js"><link rel="prefetch" href="/assets/js/35.63bde005.js"><link rel="prefetch" href="/assets/js/36.7dc9ea36.js"><link rel="prefetch" href="/assets/js/37.2596d809.js"><link rel="prefetch" href="/assets/js/38.fde54c43.js"><link rel="prefetch" href="/assets/js/39.cca48e77.js"><link rel="prefetch" href="/assets/js/4.e570bd7b.js"><link rel="prefetch" href="/assets/js/40.cf9ee40f.js"><link rel="prefetch" href="/assets/js/41.eb34bc1e.js"><link rel="prefetch" href="/assets/js/42.78bf8bb9.js"><link rel="prefetch" href="/assets/js/43.20770fe4.js"><link rel="prefetch" href="/assets/js/44.0aed26c9.js"><link rel="prefetch" href="/assets/js/45.6c726f31.js"><link rel="prefetch" href="/assets/js/46.beb777bb.js"><link rel="prefetch" href="/assets/js/47.5d30c835.js"><link rel="prefetch" href="/assets/js/48.68c206ce.js"><link rel="prefetch" href="/assets/js/49.901166b9.js"><link rel="prefetch" href="/assets/js/5.297c730b.js"><link rel="prefetch" href="/assets/js/50.60cbf6ce.js"><link rel="prefetch" href="/assets/js/51.43fe0c7c.js"><link rel="prefetch" href="/assets/js/52.25cf7bbb.js"><link rel="prefetch" href="/assets/js/53.a0153d16.js"><link rel="prefetch" href="/assets/js/54.c091cde6.js"><link rel="prefetch" href="/assets/js/55.a635a8bb.js"><link rel="prefetch" href="/assets/js/56.7ab4fde8.js"><link rel="prefetch" href="/assets/js/57.3a088c0f.js"><link rel="prefetch" href="/assets/js/58.3abe9fd3.js"><link rel="prefetch" href="/assets/js/59.ba41e1f1.js"><link rel="prefetch" href="/assets/js/6.a2c07a04.js"><link rel="prefetch" href="/assets/js/60.4a27b8f0.js"><link rel="prefetch" href="/assets/js/61.17d6513a.js"><link rel="prefetch" href="/assets/js/62.ef4041f4.js"><link rel="prefetch" href="/assets/js/63.20bb9778.js"><link rel="prefetch" href="/assets/js/64.7f17bb76.js"><link rel="prefetch" href="/assets/js/65.bce2c784.js"><link rel="prefetch" href="/assets/js/66.54e2c9bd.js"><link rel="prefetch" href="/assets/js/67.fdcdc113.js"><link rel="prefetch" href="/assets/js/68.7e542896.js"><link rel="prefetch" href="/assets/js/69.847a3a3c.js"><link rel="prefetch" href="/assets/js/7.09222558.js"><link rel="prefetch" href="/assets/js/70.77c6c8fe.js"><link rel="prefetch" href="/assets/js/71.2aed4a7f.js"><link rel="prefetch" href="/assets/js/72.f58a10d3.js"><link rel="prefetch" href="/assets/js/74.d9ddcec8.js"><link rel="prefetch" href="/assets/js/75.e1e0f259.js"><link rel="prefetch" href="/assets/js/76.4a73cc12.js"><link rel="prefetch" href="/assets/js/77.2f863420.js"><link rel="prefetch" href="/assets/js/78.970c7302.js"><link rel="prefetch" href="/assets/js/79.ed0c32b1.js"><link rel="prefetch" href="/assets/js/80.3cb55445.js"><link rel="prefetch" href="/assets/js/81.1ce91d87.js"><link rel="prefetch" href="/assets/js/82.ad41cb99.js"><link rel="prefetch" href="/assets/js/83.dd7e837e.js"><link rel="prefetch" href="/assets/js/84.598019ef.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.6a1f8240.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49d708b7.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冯手力-java学习之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
@@ -132,16 +132,16 @@
 </code></pre></div><p>在上述构造方法中，有一个判断应用类型的方法，用来判断当前应用程序的类型：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//2.4.3相同于</span>
 <span class="token comment">//2.2.2	</span>
 <span class="token keyword">static</span> <span class="token class-name">WebApplicationType</span> <span class="token function">deduceFromClasspath</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span>WEBFLUX_INDICATOR_CLASS<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span>WEBMVC_INDICATOR_CLASS<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-				<span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span>JERSEY_INDICATOR_CLASS<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span>REACTIVE<span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token constant">WEBFLUX_INDICATOR_CLASS</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token constant">WEBMVC_INDICATOR_CLASS</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+				<span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token constant">JERSEY_INDICATOR_CLASS</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span><span class="token constant">REACTIVE</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
-		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> className <span class="token operator">:</span> SERVLET_INDICATOR_CLASSES<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> className <span class="token operator">:</span> <span class="token constant">SERVLET_INDICATOR_CLASSES</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span>className<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span>NONE<span class="token punctuation">;</span>
+				<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span><span class="token constant">NONE</span><span class="token punctuation">;</span>
 			<span class="token punctuation">}</span>
 		<span class="token punctuation">}</span>
-		<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span>SERVLET<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token class-name">WebApplicationType</span><span class="token punctuation">.</span><span class="token constant">SERVLET</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
 
 <span class="token comment">//WebApplicationType的类型</span>
@@ -152,21 +152,21 @@
 	 * embedded web server.
 	 * 非web项目
 	 */</span>
-	NONE<span class="token punctuation">,</span>
+	<span class="token constant">NONE</span><span class="token punctuation">,</span>
 
 	<span class="token comment">/**
 	 * The application should run as a servlet-based web application and should start an
 	 * embedded servlet web server.
 	 * servlet web 项目
 	 */</span>
-	SERVLET<span class="token punctuation">,</span>
+	<span class="token constant">SERVLET</span><span class="token punctuation">,</span>
 
 	<span class="token comment">/**
 	 * The application should run as a reactive web application and should start an
 	 * embedded reactive web server.
 	 * 响应式 web 项目
 	 */</span>
-	REACTIVE<span class="token punctuation">;</span>
+	<span class="token constant">REACTIVE</span><span class="token punctuation">;</span>
 </code></pre></div><p>看一下刚刚说的重要的那个方法:getSpringFactoriesInstances</p> <div class="language-java extra-class"><pre class="language-java"><code>  <span class="token keyword">private</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token function">getSpringFactoriesInstances</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> type<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> parameterTypes<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 		<span class="token class-name">ClassLoader</span> classLoader <span class="token operator">=</span> <span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token comment">// Use names and ensure unique to protect against duplicates</span>
@@ -200,7 +200,7 @@
 		<span class="token keyword">try</span> <span class="token punctuation">{</span>
 			<span class="token comment">//FACTORIES_RESOURCE_LOCATION这呢.这个常量,就是上面说的那个路径,上面的配置:</span>
       <span class="token comment">//public static final String FACTORIES_RESOURCE_LOCATION = &quot;META-INF/spring.factories&quot;;</span>
-			<span class="token class-name">Enumeration</span><span class="token generics"><span class="token punctuation">&lt;</span>URL<span class="token punctuation">&gt;</span></span> urls <span class="token operator">=</span> classLoader<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span>FACTORIES_RESOURCE_LOCATION<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Enumeration</span><span class="token generics"><span class="token punctuation">&lt;</span>URL<span class="token punctuation">&gt;</span></span> urls <span class="token operator">=</span> classLoader<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token constant">FACTORIES_RESOURCE_LOCATION</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">//这里,遍历,他是把两个factories的文件放到一起,这两个文件的key是有重复的,</span>
 			<span class="token keyword">while</span> <span class="token punctuation">(</span>urls<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 				<span class="token class-name">URL</span> url <span class="token operator">=</span> urls<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -226,7 +226,7 @@
 		<span class="token punctuation">}</span>
 		<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unable to load factories from location [&quot;</span> <span class="token operator">+</span>
-					FACTORIES_RESOURCE_LOCATION <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token constant">FACTORIES_RESOURCE_LOCATION</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
   <span class="token comment">//返回</span>
 		<span class="token keyword">return</span> result<span class="token punctuation">;</span>
@@ -379,8 +379,8 @@ java.awt.headless模式是在缺少显示屏、键盘或者鼠标的系统配置
 	5、使用java.awt.PrintJob,java.awt.print.*和javax.print.*类里的方法进行打印
 */</span>
 <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">configureHeadlessProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span>SYSTEM_PROPERTY_JAVA_AWT_HEADLESS<span class="token punctuation">,</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span>SYSTEM_PROPERTY_JAVA_AWT_HEADLESS<span class="token punctuation">,</span> <span class="token class-name">Boolean</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>headless<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token constant">SYSTEM_PROPERTY_JAVA_AWT_HEADLESS</span><span class="token punctuation">,</span>
+				<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token constant">SYSTEM_PROPERTY_JAVA_AWT_HEADLESS</span><span class="token punctuation">,</span> <span class="token class-name">Boolean</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>headless<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p>4、创建所有spring运行监听器并发布应用启动事件</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">SpringApplicationRunListeners</span> listeners <span class="token operator">=</span> <span class="token function">getRunListeners</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
 listeners<span class="token punctuation">.</span><span class="token function">starting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -460,9 +460,9 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 		<span class="token punctuation">}</span>
     <span class="token comment">//根据webApplicationType创建对应的Environment</span>
 		<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>webApplicationType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">case</span> SERVLET<span class="token operator">:</span>
+		<span class="token keyword">case</span> <span class="token constant">SERVLET</span><span class="token operator">:</span>
 			<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">StandardServletEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> REACTIVE<span class="token operator">:</span>
+		<span class="token keyword">case</span> <span class="token constant">REACTIVE</span><span class="token operator">:</span>
 			<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">StandardReactiveWebEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token keyword">default</span><span class="token operator">:</span>
 			<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">StandardEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -482,13 +482,13 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 </code></pre></div><p>7、创建banner的打印类</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Banner</span> printedBanner <span class="token operator">=</span> <span class="token function">printBanner</span><span class="token punctuation">(</span>environment<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//打印类的详细操作过程</span>
 <span class="token keyword">private</span> <span class="token class-name">Banner</span> <span class="token function">printBanner</span><span class="token punctuation">(</span><span class="token class-name">ConfigurableEnvironment</span> environment<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bannerMode <span class="token operator">==</span> <span class="token class-name">Banner<span class="token punctuation">.</span>Mode</span><span class="token punctuation">.</span>OFF<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bannerMode <span class="token operator">==</span> <span class="token class-name">Banner<span class="token punctuation">.</span>Mode</span><span class="token punctuation">.</span><span class="token constant">OFF</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 		<span class="token class-name">ResourceLoader</span> resourceLoader <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>resourceLoader <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">this</span><span class="token punctuation">.</span>resourceLoader
 				<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">DefaultResourceLoader</span><span class="token punctuation">(</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token class-name">SpringApplicationBannerPrinter</span> bannerPrinter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SpringApplicationBannerPrinter</span><span class="token punctuation">(</span>resourceLoader<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>banner<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bannerMode <span class="token operator">==</span> <span class="token class-name">Mode</span><span class="token punctuation">.</span>LOG<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bannerMode <span class="token operator">==</span> <span class="token class-name">Mode</span><span class="token punctuation">.</span><span class="token constant">LOG</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">return</span> bannerPrinter<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>environment<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mainApplicationClass<span class="token punctuation">,</span> logger<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 		<span class="token keyword">return</span> bannerPrinter<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>environment<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mainApplicationClass<span class="token punctuation">,</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -499,14 +499,14 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 		<span class="token keyword">if</span> <span class="token punctuation">(</span>contextClass <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">try</span> <span class="token punctuation">{</span>
 				<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>webApplicationType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token keyword">case</span> SERVLET<span class="token operator">:</span>
-					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>DEFAULT_SERVLET_WEB_CONTEXT_CLASS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token constant">SERVLET</span><span class="token operator">:</span>
+					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token constant">DEFAULT_SERVLET_WEB_CONTEXT_CLASS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 					<span class="token keyword">break</span><span class="token punctuation">;</span>
-				<span class="token keyword">case</span> REACTIVE<span class="token operator">:</span>
-					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>DEFAULT_REACTIVE_WEB_CONTEXT_CLASS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token constant">REACTIVE</span><span class="token operator">:</span>
+					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token constant">DEFAULT_REACTIVE_WEB_CONTEXT_CLASS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 					<span class="token keyword">break</span><span class="token punctuation">;</span>
 				<span class="token keyword">default</span><span class="token operator">:</span>
-					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>DEFAULT_CONTEXT_CLASS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					contextClass <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token constant">DEFAULT_CONTEXT_CLASS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 				<span class="token punctuation">}</span>
 			<span class="token punctuation">}</span>
 			<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ClassNotFoundException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -569,7 +569,7 @@ listeners<span class="token punctuation">.</span><span class="token function">st
     <span class="token comment">//这里没有做任何的处理过程，因为beanNameGenerator和resourceLoader默认为空，可以方便后续做扩展处理</span>
     <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">postProcessApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">ConfigurableApplicationContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>beanNameGenerator <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			context<span class="token punctuation">.</span><span class="token function">getBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">registerSingleton</span><span class="token punctuation">(</span><span class="token class-name">AnnotationConfigUtils</span><span class="token punctuation">.</span>CONFIGURATION_BEAN_NAME_GENERATOR<span class="token punctuation">,</span>
+			context<span class="token punctuation">.</span><span class="token function">getBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">registerSingleton</span><span class="token punctuation">(</span><span class="token class-name">AnnotationConfigUtils</span><span class="token punctuation">.</span><span class="token constant">CONFIGURATION_BEAN_NAME_GENERATOR</span><span class="token punctuation">,</span>
 					<span class="token keyword">this</span><span class="token punctuation">.</span>beanNameGenerator<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>resourceLoader <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -781,8 +781,8 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 
 		<span class="token keyword">try</span> <span class="token punctuation">{</span>
 			<span class="token class-name">Enumeration</span><span class="token generics"><span class="token punctuation">&lt;</span>URL<span class="token punctuation">&gt;</span></span> urls <span class="token operator">=</span> <span class="token punctuation">(</span>classLoader <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span>
-					classLoader<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span>FACTORIES_RESOURCE_LOCATION<span class="token punctuation">)</span> <span class="token operator">:</span>
-					<span class="token class-name">ClassLoader</span><span class="token punctuation">.</span><span class="token function">getSystemResources</span><span class="token punctuation">(</span>FACTORIES_RESOURCE_LOCATION<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					classLoader<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token constant">FACTORIES_RESOURCE_LOCATION</span><span class="token punctuation">)</span> <span class="token operator">:</span>
+					<span class="token class-name">ClassLoader</span><span class="token punctuation">.</span><span class="token function">getSystemResources</span><span class="token punctuation">(</span><span class="token constant">FACTORIES_RESOURCE_LOCATION</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 			result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedMultiValueMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 			<span class="token keyword">while</span> <span class="token punctuation">(</span>urls<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 				<span class="token class-name">URL</span> url <span class="token operator">=</span> urls<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -800,7 +800,7 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 		<span class="token punctuation">}</span>
 		<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unable to load factories from location [&quot;</span> <span class="token operator">+</span>
-					FACTORIES_RESOURCE_LOCATION <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token constant">FACTORIES_RESOURCE_LOCATION</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
 <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
@@ -824,23 +824,23 @@ listeners<span class="token punctuation">.</span><span class="token function">st
 		<span class="token keyword">return</span> instances<span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
 </code></pre></div><p>spring.factory文件中的类的作用：</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># PropertySource Loaders 属性文件加载器</span>
-<span class="token attr-name">org.springframework.boot.env.PropertySourceLoader</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.env.PropertySourceLoader</span><span class="token punctuation">=</span><span class="token value attr-value">\
 </span><span class="token comment"># properties文件加载器</span>
 org.springframework.boot.env.PropertiesPropertySourceLoader,\
 <span class="token comment"># yaml文件加载器</span>
 org.springframework.boot.env.YamlPropertySourceLoader
 
 <span class="token comment"># Run Listeners 运行时的监听器</span>
-<span class="token attr-name">org.springframework.boot.SpringApplicationRunListener</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.SpringApplicationRunListener</span><span class="token punctuation">=</span><span class="token value attr-value">\
 </span><span class="token comment"># 程序运行过程中所有监听通知都是通过此类来进行回调</span>
 org.springframework.boot.context.event.EventPublishingRunListener
 
 <span class="token comment"># Error Reporters	错误报告器</span>
-<span class="token attr-name">org.springframework.boot.SpringBootExceptionReporter</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.SpringBootExceptionReporter</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.diagnostics.FailureAnalyzers</span>
 
 <span class="token comment"># Application Context Initializers</span>
-<span class="token attr-name">org.springframework.context.ApplicationContextInitializer</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.context.ApplicationContextInitializer</span><span class="token punctuation">=</span><span class="token value attr-value">\
 </span><span class="token comment"># 报告spring容器的一些常见的错误配置</span>
 org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer,\
 <span class="token comment"># 设置spring应用上下文的ID</span>
@@ -852,7 +852,7 @@ org.springframework.boot.rsocket.context.RSocketPortInfoApplicationContextInitia
 org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer
 
 <span class="token comment"># Application Listeners</span>
-<span class="token attr-name">org.springframework.context.ApplicationListener</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.context.ApplicationListener</span><span class="token punctuation">=</span><span class="token value attr-value">\
 </span><span class="token comment"># 应用上下文加载完成后对缓存做清除工作，响应事件ContextRefreshEvent</span>
 org.springframework.boot.ClearCachesApplicationListener,\
 <span class="token comment"># 监听双亲应用上下文的关闭事件并往自己的孩子应用上下文中传播，相关事件ParentContextAvailableEvent/ContextClosedEvent</span>
@@ -879,14 +879,14 @@ org.springframework.boot.context.logging.LoggingApplicationListener,\
 org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
 
 <span class="token comment"># Environment Post Processors</span>
-<span class="token attr-name">org.springframework.boot.env.EnvironmentPostProcessor</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.env.EnvironmentPostProcessor</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor,\
 org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor,\
 org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor,\
 org.springframework.boot.reactor.DebugAgentEnvironmentPostProcessor</span>
 
 <span class="token comment"># Failure Analyzers</span>
-<span class="token attr-name">org.springframework.boot.diagnostics.FailureAnalyzer</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.diagnostics.FailureAnalyzer</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer,\
 org.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer,\
 org.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer,\
@@ -902,31 +902,31 @@ org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFa
 org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer</span>
 
 <span class="token comment"># FailureAnalysisReporters</span>
-<span class="token attr-name">org.springframework.boot.diagnostics.FailureAnalysisReporter</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.diagnostics.FailureAnalysisReporter</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter</span>
 
 <span class="token comment"># Initializers</span>
-<span class="token attr-name">org.springframework.context.ApplicationContextInitializer</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.context.ApplicationContextInitializer</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer,\
 org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener</span>
 
 <span class="token comment"># Application Listeners</span>
-<span class="token attr-name">org.springframework.context.ApplicationListener</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.context.ApplicationListener</span><span class="token punctuation">=</span><span class="token value attr-value">\
 </span><span class="token comment"># 另外单独启动一个线程实例化并调用run方法，包括验证器、消息转换器等</span>
 org.springframework.boot.autoconfigure.BackgroundPreinitializer
 
 <span class="token comment"># Auto Configuration Import Listeners</span>
-<span class="token attr-name">org.springframework.boot.autoconfigure.AutoConfigurationImportListener</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.autoconfigure.AutoConfigurationImportListener</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.condition.ConditionEvaluationReportAutoConfigurationImportListener</span>
 
 <span class="token comment"># Auto Configuration Import Filters</span>
-<span class="token attr-name">org.springframework.boot.autoconfigure.AutoConfigurationImportFilter</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.autoconfigure.AutoConfigurationImportFilter</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.condition.OnBeanCondition,\
 org.springframework.boot.autoconfigure.condition.OnClassCondition,\
 org.springframework.boot.autoconfigure.condition.OnWebApplicationCondition</span>
 
 <span class="token comment"># Auto Configure</span>
-<span class="token attr-name">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\
 org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\
 org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\
@@ -1053,7 +1053,7 @@ org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration,
 org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAutoConfiguration</span>
 
 <span class="token comment"># Failure analyzers</span>
-<span class="token attr-name">org.springframework.boot.diagnostics.FailureAnalyzer</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.diagnostics.FailureAnalyzer</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer,\
 org.springframework.boot.autoconfigure.flyway.FlywayMigrationScriptMissingFailureAnalyzer,\
 org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer,\
@@ -1061,7 +1061,7 @@ org.springframework.boot.autoconfigure.jdbc.HikariDriverConfigurationFailureAnal
 org.springframework.boot.autoconfigure.session.NonUniqueSessionRepositoryFailureAnalyzer</span>
 
 <span class="token comment"># Template availability providers</span>
-<span class="token attr-name">org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider</span><span class="token punctuation">=</span><span class="token attr-value">\
+<span class="token key attr-name">org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider</span><span class="token punctuation">=</span><span class="token value attr-value">\
 org.springframework.boot.autoconfigure.freemarker.FreeMarkerTemplateAvailabilityProvider,\
 org.springframework.boot.autoconfigure.mustache.MustacheTemplateAvailabilityProvider,\
 org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAvailabilityProvider,\
@@ -1073,6 +1073,6 @@ org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvid
       <a href="/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="prev router-link-active">
         记录源码解析过程
       </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.344ee7b6.js" defer></script><script src="/assets/js/2.69edca9d.js" defer></script><script src="/assets/js/66.dcb573d1.js" defer></script>
+    <script src="/assets/js/app.62c6e314.js" defer></script><script src="/assets/js/2.25c8d47f.js" defer></script><script src="/assets/js/1.b29eacc6.js" defer></script><script src="/assets/js/73.6cc22a46.js" defer></script>
   </body>
 </html>
