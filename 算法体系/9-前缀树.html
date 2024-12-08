@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前缀树（prefix tree/trie） | 冯手力-java学习之路</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.49d708b7.css" as="style"><link rel="preload" href="/assets/js/app.2b6e7968.js" as="script"><link rel="preload" href="/assets/js/2.09396ac8.js" as="script"><link rel="preload" href="/assets/js/1.1a85c3a8.js" as="script"><link rel="preload" href="/assets/js/96.ad0ac928.js" as="script"><link rel="prefetch" href="/assets/js/10.8f34ae0e.js"><link rel="prefetch" href="/assets/js/100.ca8a9106.js"><link rel="prefetch" href="/assets/js/101.20c0e453.js"><link rel="prefetch" href="/assets/js/102.a950b3ca.js"><link rel="prefetch" href="/assets/js/103.dc255332.js"><link rel="prefetch" href="/assets/js/104.839312f8.js"><link rel="prefetch" href="/assets/js/105.bc4e847d.js"><link rel="prefetch" href="/assets/js/106.88417b1d.js"><link rel="prefetch" href="/assets/js/107.7dd3c60a.js"><link rel="prefetch" href="/assets/js/11.b26940bf.js"><link rel="prefetch" href="/assets/js/12.8e336b05.js"><link rel="prefetch" href="/assets/js/13.a399852a.js"><link rel="prefetch" href="/assets/js/14.e6cc4625.js"><link rel="prefetch" href="/assets/js/15.4108c79a.js"><link rel="prefetch" href="/assets/js/16.d0410f7f.js"><link rel="prefetch" href="/assets/js/17.3023ee23.js"><link rel="prefetch" href="/assets/js/18.dee4071e.js"><link rel="prefetch" href="/assets/js/19.9d7dca95.js"><link rel="prefetch" href="/assets/js/20.9f6905dc.js"><link rel="prefetch" href="/assets/js/21.52729a5d.js"><link rel="prefetch" href="/assets/js/22.ce407ca1.js"><link rel="prefetch" href="/assets/js/23.86117729.js"><link rel="prefetch" href="/assets/js/24.06f6cc59.js"><link rel="prefetch" href="/assets/js/25.d40b7180.js"><link rel="prefetch" href="/assets/js/26.f03ee2d9.js"><link rel="prefetch" href="/assets/js/27.ce5e5cec.js"><link rel="prefetch" href="/assets/js/28.77b9a09a.js"><link rel="prefetch" href="/assets/js/29.8d8d8383.js"><link rel="prefetch" href="/assets/js/3.a5216265.js"><link rel="prefetch" href="/assets/js/30.f4e6635d.js"><link rel="prefetch" href="/assets/js/31.b4b673f8.js"><link rel="prefetch" href="/assets/js/32.48ba9a28.js"><link rel="prefetch" href="/assets/js/33.3cb76f46.js"><link rel="prefetch" href="/assets/js/34.b68c60a5.js"><link rel="prefetch" href="/assets/js/35.bb188c22.js"><link rel="prefetch" href="/assets/js/36.b3a87927.js"><link rel="prefetch" href="/assets/js/37.63146628.js"><link rel="prefetch" href="/assets/js/38.0721e101.js"><link rel="prefetch" href="/assets/js/39.d5747bac.js"><link rel="prefetch" href="/assets/js/4.fff349a8.js"><link rel="prefetch" href="/assets/js/40.c70e1381.js"><link rel="prefetch" href="/assets/js/41.918a5b03.js"><link rel="prefetch" href="/assets/js/42.7b86c26b.js"><link rel="prefetch" href="/assets/js/43.0fb65184.js"><link rel="prefetch" href="/assets/js/44.04953f4d.js"><link rel="prefetch" href="/assets/js/45.7ffb87de.js"><link rel="prefetch" href="/assets/js/46.39416952.js"><link rel="prefetch" href="/assets/js/47.52cb2667.js"><link rel="prefetch" href="/assets/js/48.9122a604.js"><link rel="prefetch" href="/assets/js/49.67570c6c.js"><link rel="prefetch" href="/assets/js/5.350e26b1.js"><link rel="prefetch" href="/assets/js/50.d9642929.js"><link rel="prefetch" href="/assets/js/51.0c2379dd.js"><link rel="prefetch" href="/assets/js/52.37c53b8f.js"><link rel="prefetch" href="/assets/js/53.be270fc3.js"><link rel="prefetch" href="/assets/js/54.86c3d3e5.js"><link rel="prefetch" href="/assets/js/55.b91d78b5.js"><link rel="prefetch" href="/assets/js/56.d432dbc6.js"><link rel="prefetch" href="/assets/js/57.b6611395.js"><link rel="prefetch" href="/assets/js/58.be42f3b0.js"><link rel="prefetch" href="/assets/js/59.94be9237.js"><link rel="prefetch" href="/assets/js/6.62b2697c.js"><link rel="prefetch" href="/assets/js/60.59e58ab6.js"><link rel="prefetch" href="/assets/js/61.b8577f04.js"><link rel="prefetch" href="/assets/js/62.440b59db.js"><link rel="prefetch" href="/assets/js/63.66167600.js"><link rel="prefetch" href="/assets/js/64.6e1196c7.js"><link rel="prefetch" href="/assets/js/65.4391277e.js"><link rel="prefetch" href="/assets/js/66.9f118c71.js"><link rel="prefetch" href="/assets/js/67.47688080.js"><link rel="prefetch" href="/assets/js/68.ca7ba32b.js"><link rel="prefetch" href="/assets/js/69.03f5e1d8.js"><link rel="prefetch" href="/assets/js/7.3b597612.js"><link rel="prefetch" href="/assets/js/70.5a10ee40.js"><link rel="prefetch" href="/assets/js/71.3e330c01.js"><link rel="prefetch" href="/assets/js/72.3cb21c59.js"><link rel="prefetch" href="/assets/js/73.e82b5d66.js"><link rel="prefetch" href="/assets/js/74.8a01ecea.js"><link rel="prefetch" href="/assets/js/75.65497404.js"><link rel="prefetch" href="/assets/js/76.740fac39.js"><link rel="prefetch" href="/assets/js/77.36bc1baf.js"><link rel="prefetch" href="/assets/js/78.afb9056e.js"><link rel="prefetch" href="/assets/js/79.d0dc7285.js"><link rel="prefetch" href="/assets/js/80.73f1e3ef.js"><link rel="prefetch" href="/assets/js/81.2e4860a0.js"><link rel="prefetch" href="/assets/js/82.4355298c.js"><link rel="prefetch" href="/assets/js/83.ed5c03e3.js"><link rel="prefetch" href="/assets/js/84.ba2af46a.js"><link rel="prefetch" href="/assets/js/85.f5e5fe2e.js"><link rel="prefetch" href="/assets/js/86.24f36311.js"><link rel="prefetch" href="/assets/js/87.c9dde0d5.js"><link rel="prefetch" href="/assets/js/88.4b1bb439.js"><link rel="prefetch" href="/assets/js/89.ea1b3ef2.js"><link rel="prefetch" href="/assets/js/90.8d255f1d.js"><link rel="prefetch" href="/assets/js/91.90931754.js"><link rel="prefetch" href="/assets/js/92.a241e835.js"><link rel="prefetch" href="/assets/js/93.5c1452d3.js"><link rel="prefetch" href="/assets/js/94.3ad079dd.js"><link rel="prefetch" href="/assets/js/95.46ac8e73.js"><link rel="prefetch" href="/assets/js/97.a03f2da0.js"><link rel="prefetch" href="/assets/js/98.e7914627.js"><link rel="prefetch" href="/assets/js/99.a8db6a40.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.3cd41357.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49d708b7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冯手力-java学习之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术相关" class="dropdown-title"><span class="title">技术相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术相关" class="mobile-dropdown-title"><span class="title">技术相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-subitem"><a href="https://github.com/hehonghui/mockito-doc-zh#0" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  mockito
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/xiao__jia__jia/article/details/115252780" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  mockito详解
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><!----> <a href="/数据库/" class="nav-link">
+  数据库技术
+</a></li></ul></div></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="下拉目录测试" class="dropdown-title"><span class="title">下拉目录测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="下拉目录测试" class="mobile-dropdown-title"><span class="title">下拉目录测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/ts/" class="nav-link">
+  具体.md文档
+</a></li><li class="dropdown-item"><!----> <a href="/guide/vue/test03.html" class="nav-link">
+  文件夹下Readme
+</a></li><li class="dropdown-item"><!----> <a href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  其他连接测试-百度链接
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术相关" class="dropdown-title"><span class="title">技术相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术相关" class="mobile-dropdown-title"><span class="title">技术相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-subitem"><a href="https://github.com/hehonghui/mockito-doc-zh#0" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  mockito
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/xiao__jia__jia/article/details/115252780" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  mockito详解
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><!----> <a href="/数据库/" class="nav-link">
+  数据库技术
+</a></li></ul></div></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="下拉目录测试" class="dropdown-title"><span class="title">下拉目录测试</span> <span class="arrow down"></span></button> <button type="button" aria-label="下拉目录测试" class="mobile-dropdown-title"><span class="title">下拉目录测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/ts/" class="nav-link">
+  具体.md文档
+</a></li><li class="dropdown-item"><!----> <a href="/guide/vue/test03.html" class="nav-link">
+  文件夹下Readme
+</a></li><li class="dropdown-item"><!----> <a href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  其他连接测试-百度链接
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/%E7%AE%97%E6%B3%95%E4%BD%93%E7%B3%BB/" aria-current="page" class="sidebar-link">算法体系学习</a></li><li><a href="/算法体系/算法基础.html" class="sidebar-link">算法基础学习</a></li><li><a href="/算法体系/算法新手班.html" class="sidebar-link">算法新手班</a></li><li><a href="/算法体系/7~8-堆-被火车撞了都不能忘记的结构.html" class="sidebar-link">堆-被火车撞了都不能忘记的结构</a></li><li><a href="/算法体系/9-前缀树.html" class="active sidebar-link">前缀树（prefix tree/trie）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/算法体系/9-前缀树.html#可以完成前缀相关的查询" class="sidebar-link">可以完成前缀相关的查询</a></li><li class="sidebar-sub-header"><a href="/算法体系/9-前缀树.html#核心思路" class="sidebar-link">核心思路</a></li><li class="sidebar-sub-header"><a href="/算法体系/9-前缀树.html#核心方法" class="sidebar-link">核心方法</a></li><li class="sidebar-sub-header"><a href="/算法体系/9-前缀树.html#两种实现方式之-代码示例-数组实现" class="sidebar-link">两种实现方式之-代码示例-数组实现</a></li><li class="sidebar-sub-header"><a href="/算法体系/9-前缀树.html#两种实现方式之-代码示例-哈希表实现" class="sidebar-link">两种实现方式之-代码示例-哈希表实现</a></li></ul></li><li><a href="/算法体系/10-排序总结,链表相关题目.html" class="sidebar-link">10-排序总结,链表相关题目</a></li><li><a href="/算法体系/11~13-二叉树.html" class="sidebar-link">二叉树</a></li><li><a href="/算法体系/15~16-并查集-查连通区域神器.html" class="sidebar-link">并查集-查连通区域神器</a></li><li><a href="/算法体系/17-图.html" class="sidebar-link">图</a></li><li><a href="/算法体系/18~24-暴力递归到动态规划.html" class="sidebar-link">暴力递归到动态规划</a></li><li><a href="/算法体系/25-滑动窗口内最大值或最小值问题.html" class="sidebar-link">滑动窗口内最大值或最小值问题</a></li><li><a href="/算法体系/26-单调栈.html" class="sidebar-link">单调栈</a></li><li><a href="/算法体系/28-KMP算法.html" class="sidebar-link">KMP算法</a></li><li><a href="/算法体系/29-Manacher算法.html" class="sidebar-link">Manacher算法</a></li><li><a href="/算法体系/30-蓄水池算法.html" class="sidebar-link">蓄水池算法</a></li><li><a href="/算法体系/30-bfprt算法-topk.html" class="sidebar-link">bfprt算法</a></li><li><a href="/算法体系/31-Morris遍历.html" class="sidebar-link">Morris遍历</a></li><li><a href="/算法体系/32-线段树.html" class="sidebar-link">线段树</a></li><li><a href="/算法体系/大厂-21-树链刨分.html" class="sidebar-link">树链刨分</a></li><li><a href="/算法体系/33-IndexTree,AC自动机.html" class="sidebar-link">IndexTree,AC自动机</a></li><li><a href="/算法体系/34-与哈希函数有关的数据结构.html" class="sidebar-link">与哈希函数有关的数据结构</a></li><li><a href="/算法体系/35-资源限制类题目解题思路.html" class="sidebar-link">资源限制类题目解题思路</a></li><li><a href="/算法体系/41-数组三连问题.html" class="sidebar-link">数组三连问题.</a></li><li><a href="/算法体系/大厂刷题.html" class="sidebar-link">大厂刷题</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前缀树-prefix-tree-trie"><a href="#前缀树-prefix-tree-trie" class="header-anchor">#</a> 前缀树（prefix tree/trie）</h1> <h2 id="可以完成前缀相关的查询"><a href="#可以完成前缀相关的查询" class="header-anchor">#</a> 可以完成前缀相关的查询</h2> <h2 id="核心思路"><a href="#核心思路" class="header-anchor">#</a> 核心思路</h2> <ol><li>单个字符串中，字符从前到后的加到一棵多叉树上</li> <li>字符放在路上，节点上有专属的数据项（常见的是pass和end值）(顶点就是空的)</li> <li>所有样本都这样添加，如果没有路就新建，如有路就复用</li> <li>沿途节点的pass值增加1，每个字符串结束时来到的节点end值增加1</li></ol> <h2 id="核心方法"><a href="#核心方法" class="header-anchor">#</a> 核心方法</h2> <div class="language-java extra-class"><pre class="language-java"><code>设计一种结构。用户可以：
+<span class="token number">1</span>）<span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span>            <span class="token comment">//添加某个字符串，可以重复添加，每次算1个</span>
+<span class="token number">2</span>）<span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span>             <span class="token comment">//查询某个字符串在结构中还有几个</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span>          <span class="token comment">//删掉某个字符串，可以重复删除，每次算1个</span>
+<span class="token number">4</span>）<span class="token keyword">int</span> <span class="token function">prefixNumber</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span>       <span class="token comment">//查询有多少个字符串，是以str做前缀的</span>
+</code></pre></div><h2 id="两种实现方式之-代码示例-数组实现"><a href="#两种实现方式之-代码示例-数组实现" class="header-anchor">#</a> 两种实现方式之-代码示例-数组实现</h2> <p>路数固定的,适合用数组的方式实现,例如小写单词,因为用数组替代,常数时间更好,速度更快.</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">class08</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Code01_Trie</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">// 测试链接 : https://leetcode.cn/problems/implement-trie-ii-prefix-tree/</span>
+	<span class="token comment">// 提交Trie类可以直接通过</span>
+	<span class="token comment">// 原来代码是对的，但是既然找到了直接测试的链接，那就直接测吧</span>
+	<span class="token comment">// 这个链接上要求实现的功能和课上讲的完全一样</span>
+	<span class="token comment">// 该前缀树的路用数组实现</span>
+	<span class="token keyword">class</span> <span class="token class-name">Trie</span> <span class="token punctuation">{</span>
+
+		<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+			<span class="token keyword">public</span> <span class="token keyword">int</span> pass<span class="token punctuation">;</span>
+			<span class="token keyword">public</span> <span class="token keyword">int</span> end<span class="token punctuation">;</span>
+      <span class="token comment">//因为是小写字母,所以只有26条路,减去小写a的ascii码即可得到数字值.</span>
+			<span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nexts<span class="token punctuation">;</span>
+
+			<span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				pass <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				nexts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">private</span> <span class="token class-name">Node</span> root<span class="token punctuation">;</span>
+
+		<span class="token keyword">public</span> <span class="token class-name">Trie</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    有途径的节点,pass++,代表经过的词的路径增加了.
+    如果新的字母,没有已有的,新建路,路++,如果否则不新建
+    如果没有单词了,当前点的end++
+    */</span>
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>word <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> str <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			node<span class="token punctuation">.</span>pass<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token keyword">int</span> path <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 从左往右遍历字符</span>
+				path <span class="token operator">=</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">;</span> <span class="token comment">// 由字符，对应成走向哪条路</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				node<span class="token punctuation">.</span>pass<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			node<span class="token punctuation">.</span>end<span class="token operator">++</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    pass 减完了等于 0的点,删除掉,
+    否则只是减路径
+    */</span>
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">erase</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">countWordsEqualTo</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+				node<span class="token punctuation">.</span>pass<span class="token operator">--</span><span class="token punctuation">;</span>
+				<span class="token keyword">int</span> path <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					path <span class="token operator">=</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">--</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span><span class="token punctuation">.</span>pass <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+						<span class="token keyword">return</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span>
+					node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>path<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node<span class="token punctuation">.</span>end<span class="token operator">--</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    判断一个单词出现了几次,找到节点的end的值,就是以他为点的
+    */</span>
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">countWordsEqualTo</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>word <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				index <span class="token operator">=</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">return</span> node<span class="token punctuation">.</span>end<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    求一个单词前缀的出现了几次,找到途经点的path,即可知道.
+    */</span>
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">countWordsStartingWith</span><span class="token punctuation">(</span><span class="token class-name">String</span> pre<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>pre <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> pre<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				index <span class="token operator">=</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">return</span> node<span class="token punctuation">.</span>pass<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="两种实现方式之-代码示例-哈希表实现"><a href="#两种实现方式之-代码示例-哈希表实现" class="header-anchor">#</a> 两种实现方式之-代码示例-哈希表实现</h2> <p>路数不固定的,适合用map这种方式实现.</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">class08</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Code02_Trie</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">// 测试链接 : https://leetcode.cn/problems/implement-trie-ii-prefix-tree/</span>
+	<span class="token comment">// 提交Trie类可以直接通过</span>
+	<span class="token comment">// 原来代码是对的，但是既然找到了直接测试的链接，那就直接测吧</span>
+	<span class="token comment">// 这个链接上要求实现的功能和课上讲的完全一样</span>
+	<span class="token comment">// 该前缀树的路用哈希表实现</span>
+	<span class="token keyword">class</span> <span class="token class-name">Trie</span> <span class="token punctuation">{</span>
+
+		<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+			<span class="token keyword">public</span> <span class="token keyword">int</span> pass<span class="token punctuation">;</span>
+			<span class="token keyword">public</span> <span class="token keyword">int</span> end<span class="token punctuation">;</span>
+			<span class="token keyword">public</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">&gt;</span></span> nexts<span class="token punctuation">;</span>
+
+			<span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				pass <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				nexts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">private</span> <span class="token class-name">Node</span> root<span class="token punctuation">;</span>
+
+		<span class="token keyword">public</span> <span class="token class-name">Trie</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>word <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			node<span class="token punctuation">.</span>pass<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				node<span class="token punctuation">.</span>pass<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			node<span class="token punctuation">.</span>end<span class="token operator">++</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">erase</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">countWordsEqualTo</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+				node<span class="token punctuation">.</span>pass<span class="token operator">--</span><span class="token punctuation">;</span>
+				<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">--</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>pass <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token keyword">return</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span>
+					node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node<span class="token punctuation">.</span>end<span class="token operator">--</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">countWordsEqualTo</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>word <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">return</span> node<span class="token punctuation">.</span>end<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">countWordsStartingWith</span><span class="token punctuation">(</span><span class="token class-name">String</span> pre<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>pre <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> pre<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">Node</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+			<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> chs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				node <span class="token operator">=</span> node<span class="token punctuation">.</span>nexts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">return</span> node<span class="token punctuation">.</span>pass<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/算法体系/7~8-堆-被火车撞了都不能忘记的结构.html" class="prev">
+        堆-被火车撞了都不能忘记的结构
+      </a></span> <span class="next"><a href="/算法体系/10-排序总结,链表相关题目.html">
+        10-排序总结,链表相关题目
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2b6e7968.js" defer></script><script src="/assets/js/2.09396ac8.js" defer></script><script src="/assets/js/1.1a85c3a8.js" defer></script><script src="/assets/js/96.ad0ac928.js" defer></script>
+  </body>
+</html>
