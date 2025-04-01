@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>并发编程场景解决方案面试题2025 | 冯手力-java学习之路</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.49d708b7.css" as="style"><link rel="preload" href="/assets/js/app.4bcd492b.js" as="script"><link rel="preload" href="/assets/js/2.8fdba881.js" as="script"><link rel="preload" href="/assets/js/1.54dbed7e.js" as="script"><link rel="preload" href="/assets/js/33.b4f5a7a7.js" as="script"><link rel="prefetch" href="/assets/js/10.fbd1c150.js"><link rel="prefetch" href="/assets/js/100.23f70170.js"><link rel="prefetch" href="/assets/js/101.7712066d.js"><link rel="prefetch" href="/assets/js/102.495dfb59.js"><link rel="prefetch" href="/assets/js/103.33ada265.js"><link rel="prefetch" href="/assets/js/104.a084c126.js"><link rel="prefetch" href="/assets/js/105.359fff21.js"><link rel="prefetch" href="/assets/js/106.e5f0ea78.js"><link rel="prefetch" href="/assets/js/107.2bb91f9f.js"><link rel="prefetch" href="/assets/js/108.74b36701.js"><link rel="prefetch" href="/assets/js/109.d55485a6.js"><link rel="prefetch" href="/assets/js/11.42ed8b2e.js"><link rel="prefetch" href="/assets/js/110.519badaa.js"><link rel="prefetch" href="/assets/js/111.9e87b884.js"><link rel="prefetch" href="/assets/js/112.63f549e3.js"><link rel="prefetch" href="/assets/js/113.33579d76.js"><link rel="prefetch" href="/assets/js/114.fb291443.js"><link rel="prefetch" href="/assets/js/115.8f269171.js"><link rel="prefetch" href="/assets/js/116.b0a2d99b.js"><link rel="prefetch" href="/assets/js/117.df326183.js"><link rel="prefetch" href="/assets/js/118.246d9ce4.js"><link rel="prefetch" href="/assets/js/119.95353bee.js"><link rel="prefetch" href="/assets/js/12.bf3ac8be.js"><link rel="prefetch" href="/assets/js/13.443a1262.js"><link rel="prefetch" href="/assets/js/14.0939f869.js"><link rel="prefetch" href="/assets/js/15.fcada69f.js"><link rel="prefetch" href="/assets/js/16.5c06248f.js"><link rel="prefetch" href="/assets/js/17.2f057810.js"><link rel="prefetch" href="/assets/js/18.feb70542.js"><link rel="prefetch" href="/assets/js/19.8604b0d1.js"><link rel="prefetch" href="/assets/js/20.d8fe0666.js"><link rel="prefetch" href="/assets/js/21.532dc883.js"><link rel="prefetch" href="/assets/js/22.36b39384.js"><link rel="prefetch" href="/assets/js/23.b2ac4539.js"><link rel="prefetch" href="/assets/js/24.fc928307.js"><link rel="prefetch" href="/assets/js/25.a846d76f.js"><link rel="prefetch" href="/assets/js/26.139b770d.js"><link rel="prefetch" href="/assets/js/27.716f598f.js"><link rel="prefetch" href="/assets/js/28.ed205924.js"><link rel="prefetch" href="/assets/js/29.59dc65ee.js"><link rel="prefetch" href="/assets/js/3.56cc2b82.js"><link rel="prefetch" href="/assets/js/30.daccf7fa.js"><link rel="prefetch" href="/assets/js/31.63bc47c5.js"><link rel="prefetch" href="/assets/js/32.05ec6cfb.js"><link rel="prefetch" href="/assets/js/34.b4126ccf.js"><link rel="prefetch" href="/assets/js/35.7c9529cc.js"><link rel="prefetch" href="/assets/js/36.e48bc3fc.js"><link rel="prefetch" href="/assets/js/37.092c1958.js"><link rel="prefetch" href="/assets/js/38.96f383f0.js"><link rel="prefetch" href="/assets/js/39.11d3d0d7.js"><link rel="prefetch" href="/assets/js/4.7e1a4e7a.js"><link rel="prefetch" href="/assets/js/40.920373d3.js"><link rel="prefetch" href="/assets/js/41.35d39d0c.js"><link rel="prefetch" href="/assets/js/42.ac8a6553.js"><link rel="prefetch" href="/assets/js/43.b32da1b8.js"><link rel="prefetch" href="/assets/js/44.2a300ea6.js"><link rel="prefetch" href="/assets/js/45.39045a24.js"><link rel="prefetch" href="/assets/js/46.90905eb6.js"><link rel="prefetch" href="/assets/js/47.b989c417.js"><link rel="prefetch" href="/assets/js/48.a0e370fc.js"><link rel="prefetch" href="/assets/js/49.ac382d21.js"><link rel="prefetch" href="/assets/js/5.e91f520c.js"><link rel="prefetch" href="/assets/js/50.2a5c791b.js"><link rel="prefetch" href="/assets/js/51.2a54d46c.js"><link rel="prefetch" href="/assets/js/52.dd7f626a.js"><link rel="prefetch" href="/assets/js/53.3f3f147d.js"><link rel="prefetch" href="/assets/js/54.01a95868.js"><link rel="prefetch" href="/assets/js/55.c7b69e4e.js"><link rel="prefetch" href="/assets/js/56.60484440.js"><link rel="prefetch" href="/assets/js/57.979e19f1.js"><link rel="prefetch" href="/assets/js/58.b14ca47c.js"><link rel="prefetch" href="/assets/js/59.52985e41.js"><link rel="prefetch" href="/assets/js/6.a0b367e0.js"><link rel="prefetch" href="/assets/js/60.81eeec23.js"><link rel="prefetch" href="/assets/js/61.97f3e5a3.js"><link rel="prefetch" href="/assets/js/62.c2943e0a.js"><link rel="prefetch" href="/assets/js/63.c99d565c.js"><link rel="prefetch" href="/assets/js/64.9f4e2f25.js"><link rel="prefetch" href="/assets/js/65.1673fe32.js"><link rel="prefetch" href="/assets/js/66.9eccd52b.js"><link rel="prefetch" href="/assets/js/67.969dec50.js"><link rel="prefetch" href="/assets/js/68.f490fa6b.js"><link rel="prefetch" href="/assets/js/69.3dc60969.js"><link rel="prefetch" href="/assets/js/7.9f4a8525.js"><link rel="prefetch" href="/assets/js/70.c44487ef.js"><link rel="prefetch" href="/assets/js/71.a9a35313.js"><link rel="prefetch" href="/assets/js/72.cf93ad32.js"><link rel="prefetch" href="/assets/js/73.99913944.js"><link rel="prefetch" href="/assets/js/74.510facd9.js"><link rel="prefetch" href="/assets/js/75.96165437.js"><link rel="prefetch" href="/assets/js/76.69966861.js"><link rel="prefetch" href="/assets/js/77.3eaf6412.js"><link rel="prefetch" href="/assets/js/78.63542af6.js"><link rel="prefetch" href="/assets/js/79.bf7537bb.js"><link rel="prefetch" href="/assets/js/80.1af6f338.js"><link rel="prefetch" href="/assets/js/81.89cf1d0a.js"><link rel="prefetch" href="/assets/js/82.32592bf0.js"><link rel="prefetch" href="/assets/js/83.e28cf472.js"><link rel="prefetch" href="/assets/js/84.64466a80.js"><link rel="prefetch" href="/assets/js/85.1ffcf5e4.js"><link rel="prefetch" href="/assets/js/86.f4aea5b8.js"><link rel="prefetch" href="/assets/js/87.c376c808.js"><link rel="prefetch" href="/assets/js/88.c291cce1.js"><link rel="prefetch" href="/assets/js/89.4ca7217c.js"><link rel="prefetch" href="/assets/js/90.718fa94e.js"><link rel="prefetch" href="/assets/js/91.3e6603a7.js"><link rel="prefetch" href="/assets/js/92.d1177551.js"><link rel="prefetch" href="/assets/js/93.f4e434b2.js"><link rel="prefetch" href="/assets/js/94.b955f917.js"><link rel="prefetch" href="/assets/js/95.c14e2a87.js"><link rel="prefetch" href="/assets/js/96.b56a58ce.js"><link rel="prefetch" href="/assets/js/97.b1f2a6c3.js"><link rel="prefetch" href="/assets/js/98.d90ee1a2.js"><link rel="prefetch" href="/assets/js/99.b55c0bbb.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.d437f548.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49d708b7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冯手力-java学习之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/面试突击班/" class="nav-link">
+  面试突击班
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/面试突击班/" class="nav-link">
+  面试突击班
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB%E7%8F%AD/" aria-current="page" class="sidebar-link">面试突击</a></li><li><a href="/面试突击班/面试表达.html" class="sidebar-link">面试表达</a></li><li><a href="/面试突击班/基础面试题.html" class="sidebar-link">基础面试题</a></li><li><a href="/面试突击班/多线程与IO.html" class="sidebar-link">多线程与IO</a></li><li><a href="/面试突击班/JVM面试突击班2025.html" class="sidebar-link">JVM面试突击班2025-1</a></li><li><a href="/面试突击班/JVM2024-下.html" class="sidebar-link">JVM2024-下</a></li><li><a href="/面试突击班/JVM2024-上.html" class="sidebar-link">JVM2024-上</a></li><li><a href="/面试突击班/Mysql.html" class="sidebar-link">Mysql</a></li><li><a href="/面试突击班/Mysql2024-下.html" class="sidebar-link">MySQL2024-下</a></li><li><a href="/面试突击班/并发编程2025.html" class="sidebar-link">并发编程-2025</a></li><li><a href="/面试突击班/并发编程场景面试题2025.html" class="active sidebar-link">并发编程场景解决方案面试题2025</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#_1、设计一个异步任务执行框架-如何利用多线程来执行耗时的任务-并在任务完成后通知主线程-美团地图" class="sidebar-link">1、设计一个异步任务执行框架，如何利用多线程来执行耗时的任务，并在任务完成后通知主线程（美团地图）</a></li><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#_2、设计一个后台任务调度系统-如何利用多线程来并行执行多个定时任务-提高任务的处理效率-滴滴司乘" class="sidebar-link">2、设计一个后台任务调度系统，如何利用多线程来并行执行多个定时任务，提高任务的处理效率（滴滴司乘）</a></li><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#第二题当时的问题解决" class="sidebar-link">第二题当时的问题解决</a></li><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#_3、描述如何使用多线程来处理大数据集-例如在数据分析应用中-将数据拆分成多个部分并行处理-58同城" class="sidebar-link">3、描述如何使用多线程来处理大数据集，例如在数据分析应用中，将数据拆分成多个部分并行处理（58同城）</a></li><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#_4、描述如何实现一个网络爬虫-利用多线程并行抓取多个网页-提高数据抓取的效率-百度ai" class="sidebar-link">4、描述如何实现一个网络爬虫，利用多线程并行抓取多个网页，提高数据抓取的效率（百度AI）</a></li><li class="sidebar-sub-header"><a href="/面试突击班/并发编程场景面试题2025.html#_5、描述如何在java应用中使用多线程执行数据库的批量插入或更新操作-以提高数据库的写入效率-猫眼" class="sidebar-link">5、描述如何在Java应用中使用多线程执行数据库的批量插入或更新操作，以提高数据库的写入效率（猫眼）</a></li></ul></li><li><a href="/面试突击班/并发编程2024.html" class="sidebar-link">并发编程2024-1</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="并发编程场景解决方案面试题2025"><a href="#并发编程场景解决方案面试题2025" class="header-anchor">#</a> <strong>并发编程场景解决方案面试题</strong>2025</h1> <h2 id="_1、设计一个异步任务执行框架-如何利用多线程来执行耗时的任务-并在任务完成后通知主线程-美团地图"><a href="#_1、设计一个异步任务执行框架-如何利用多线程来执行耗时的任务-并在任务完成后通知主线程-美团地图" class="header-anchor">#</a> 1、设计一个异步任务执行框架，如何利用多线程来执行耗时的任务，并在任务完成后通知主线程（美团地图）</h2> <blockquote><p>问的这个东西，其实Java中自带的工具已经实现了。利用CompletableFuture就可以实现这个效果，可以点一嘴CompletableFuture的一些API，证明你会。</p> <p>比如CompletableFuture.supplyAsync知道好具体要执行的任务，然后在后续，追加一个thenApplyAsync，等任务完成后，执行thenApplyAsync的回调。</p> <p>如果舍弃掉CompletableFuture，自己主动的去实现一个异步任务的执行框架，需要考虑哪些事情，怎么去落地实现。</p> <p>1、优先构建好Java提供的线程池，ThreadPoolExecutor，用于多线程执行任务。</p> <p>2、要求主动通知主线程，需要一个回调的函数，不能让主线程自己去get。针对回调函数，至少要提供成功与失败的方法。 onComplete，onError。</p> <p>3、提供一个提交任务的方法，这个方法至少两个参数，一个是具体的任务Runnable，一个回调Callback。也可以提供一个执行Callable的提交任务的方法。</p> <p>4、比如任务执行超时后，想要去走超时的回调，onTimeout啥的，直接在提交任务后面去追加。</p> <p>5、比如任务执行一段时间后，要取消，一样可以提供任务的返回结果，让主线能拿到任务并且走cancel。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 要自己设计的一个异步框架。
+ * 1、优先构建好Java提供的线程池，ThreadPoolExecutor，用于多线程执行任务。
+ *
+ * 2、要求主动通知主线程，需要一个回调的函数，不能让主线程自己去get。针对回调函数，至少要提供成功与失败的方法。 onComplete，onError。
+ *
+ * 3、提供一个提交任务的方法，这个方法至少两个参数，一个是具体的任务Runnable，一个回调Callback。也可以提供一个执行Callable的提交任务的方法。
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncTaskFramework</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 偷个懒，基于Executors先构建一个。。。</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ExecutorService</span> executor <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 利用回调的方式，实现任务完成后，通知主线程。</span>
+    <span class="token keyword">private</span> <span class="token keyword">interface</span> <span class="token class-name">Callback</span><span class="token punctuation">{</span>
+        <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token class-name">Object</span> result<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">onTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 执行Runnable，提供callback的机制。
+     * @param task
+     * @param callback
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">submitTask</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> task<span class="token punctuation">,</span> <span class="token class-name">Callback</span> callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 提交任务到线程池时，自己写一套业务，确认可以在任务完成后，执行回调</span>
+        executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 代码执行到这，已经是线程池里的线程在执行了，已经是异步的了。</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 执行任务</span>
+                task<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 任务执行完毕，没出现异常</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    callback<span class="token punctuation">.</span><span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    callback<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 执行Callable，提交callback回调。
+     * @param task
+     * @param callback
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">submitTask</span><span class="token punctuation">(</span><span class="token class-name">Callable</span> task<span class="token punctuation">,</span> <span class="token class-name">Callback</span> callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Object</span> result <span class="token operator">=</span> task<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    callback<span class="token punctuation">.</span><span class="token function">onComplete</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    callback<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 追加超时的逻辑
+     * @param task
+     * @param callback
+     * @param timeout
+     * @param unit
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">submitTask</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> task<span class="token punctuation">,</span> <span class="token class-name">Callback</span> callback<span class="token punctuation">,</span> <span class="token keyword">long</span> timeout<span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span> unit<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> future <span class="token operator">=</span> executor<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                task<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    callback<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 判断超时与否</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            future<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>timeout<span class="token punctuation">,</span> unit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 成功的逻辑</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                callback<span class="token punctuation">.</span><span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">TimeoutException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 超时的逻辑</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                callback<span class="token punctuation">.</span><span class="token function">onTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> <span class="token operator">|</span> <span class="token class-name">ExecutionException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 异常的逻辑</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                callback<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">AsyncTaskFramework</span> framework <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AsyncTaskFramework</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        framework<span class="token punctuation">.</span><span class="token function">submitTask</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;异步执行：xxxxx&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;主线程在任务完毕后的回调&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;任务执行出现异常，通知主线程。&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote> <h2 id="_2、设计一个后台任务调度系统-如何利用多线程来并行执行多个定时任务-提高任务的处理效率-滴滴司乘"><a href="#_2、设计一个后台任务调度系统-如何利用多线程来并行执行多个定时任务-提高任务的处理效率-滴滴司乘" class="header-anchor">#</a> 2、设计一个后台任务调度系统，如何利用多线程来并行执行多个定时任务，提高任务的处理效率（滴滴司乘）</h2> <blockquote><p>后台调度就是一个定时任务的套路。</p> <p>正常咱们很少自己去写这种东西，市面上开源好用的很多，比如单体上Quartz，分布式微服务的环境下，可以上Elastic-Job，XXL-Job等等…………开源定时任务框架非常非常多。。。</p> <p>如果要自己设计的话，可以参考这个开源的框架去自己实现一套，造个轮子。</p> <p>1、首先第一点，自己设计的定时任务框架要支持cron表达式，为了解析cron表达式，可以先导入一个cron-utils的小工具，来解析cron表达式。</p> <p>2、其次构建好Java提供的线程池，ThreadPoolExecutor，用于多线程执行多个定时任务。</p> <p>3、另外，这种基于cron的定时任务，单纯的Runnable没有办法支撑。自己要封装一个任务类。</p> <p>4、因为是定时任务框架，任务要以周期性执行，需要有一个容器可以把任务存储起来，而且涉及到多个任务，所以需要一个线程安全的容器，直接上ConcurrentHashMap。</p> <p>5、可以给当前任务调度框架添加上移除任务和添加任务的功能，暂停任务和启动任务的功能，还有立即执行。</p> <p>6、在定时任务框架开始的时候，就直接要在一个死循环里遍历ConcurrentHashMap中的任务，查询每一个任务是否现在可以执行，可以就直接执行，不可以就拉倒。直到遍历结束，再开启下一次循环~。</p> <p><strong>优先把上述基本的功能实现，先发版，再迭代！！！！</strong></p> <p>7、支持分布式锁，还需要考虑在任务执行前，获取一下Redis的分布式锁，确保就一个服务执行……</p> <p>8、日志，任务失败的重试等等…………</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.cronutils<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>cron-utils<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>9.2.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span><span class="token class-name">Cron</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span><span class="token class-name">CronType</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>model<span class="token punctuation">.</span>definition<span class="token punctuation">.</span></span><span class="token class-name">CronDefinition</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>model<span class="token punctuation">.</span>definition<span class="token punctuation">.</span></span><span class="token class-name">CronDefinitionBuilder</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>model<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">ExecutionTime</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>cronutils<span class="token punctuation">.</span>parser<span class="token punctuation">.</span></span><span class="token class-name">CronParser</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>logging<span class="token punctuation">.</span>log4j<span class="token punctuation">.</span>message<span class="token punctuation">.</span></span><span class="token class-name">AsynchronouslyFormattable</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">ZonedDateTime</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">ConcurrentHashMap</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">ExecutorService</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">Executors</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 异步定时任务框架
+ * 1、首先第一点，自己设计的定时任务框架要支持cron表达式，为了解析cron表达式，可以先导入一个cron-util的小工具，来解析cron表达式。
+ *
+ * 2、其次构建好Java提供的线程池，ThreadPoolExecutor，用于多线程执行多个定时任务。
+ *
+ * 3、另外，这种基于cron的定时任务，单纯的Runnable没有办法支撑。自己要封装一个任务类。
+ *
+ * 4、因为是定时任务框架，任务要以周期性执行，需要有一个容器可以把任务存储起来，而且涉及到多个任务，所以需要一个线程安全的容器，直接上ConcurrentHashMap。
+ *
+ * 5、可以给当前任务调度框架添加上移除任务和添加任务的功能，暂停任务和启动任务的功能，还有立即执行。
+ *
+ * 6、在定时任务框架开始的时候，就直接要在一个死循环里遍历ConcurrentHashMap中的任务，查询每一个任务是否现在可以执行，可以就直接执行，不可以就拉倒。知道遍历结束。
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncScheduleFramework</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 偷个懒，基于Executors先构建一个。。。</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ExecutorService</span> executor <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 任务需要容器存储，声明CHM</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">ScheduleTask</span><span class="token punctuation">&gt;</span></span> tasks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">ScheduleTask</span><span class="token punctuation">{</span>
+        <span class="token comment">// 具体的任务</span>
+        <span class="token keyword">private</span> <span class="token class-name">Runnable</span> task<span class="token punctuation">;</span>
+        <span class="token comment">// 下次什么时间执行</span>
+        <span class="token class-name">ZonedDateTime</span> nextExecuteTime<span class="token punctuation">;</span>
+        <span class="token comment">// 计算下次执行时间的对象</span>
+        <span class="token class-name">ExecutionTime</span> executionTime<span class="token punctuation">;</span>
+        <span class="token comment">// 任务是否开启了可以执行的权限！！</span>
+        <span class="token keyword">volatile</span> <span class="token keyword">boolean</span> started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment">// 任务重复执行，第一次确保running为false，才能去执行，在执行前，将running改为true，在执行执行完毕后，再将任务修改为false</span>
+        <span class="token keyword">volatile</span> <span class="token keyword">boolean</span> running <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">ScheduleTask</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> task<span class="token punctuation">,</span> <span class="token class-name">ZonedDateTime</span> nextExecuteTime<span class="token punctuation">,</span><span class="token class-name">ExecutionTime</span> executionTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>task <span class="token operator">=</span> task<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>nextExecuteTime <span class="token operator">=</span> nextExecuteTime<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>executionTime <span class="token operator">=</span> executionTime<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 计算下次执行的时间。</span>
+        <span class="token keyword">void</span> <span class="token function">computeNextExecutionTime</span><span class="token punctuation">(</span><span class="token class-name">ZonedDateTime</span> nextExecuteTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>nextExecuteTime <span class="token operator">=</span> executionTime<span class="token punctuation">.</span><span class="token function">nextExecution</span><span class="token punctuation">(</span>nextExecuteTime<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 添加任务。
+     * @param taskName  任务标识，方便后期对任务做启动，停止等操作。
+     * @param cronExpression  cron表达式
+     * @param task  具体任务
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addTask</span><span class="token punctuation">(</span><span class="token class-name">String</span> taskName<span class="token punctuation">,</span><span class="token class-name">String</span> cronExpression<span class="token punctuation">,</span><span class="token class-name">Runnable</span> task<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 1、 创建解析cron表达式的对象</span>
+        <span class="token class-name">CronParser</span> parser <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CronParser</span><span class="token punctuation">(</span><span class="token class-name">CronDefinitionBuilder</span><span class="token punctuation">.</span><span class="token function">instanceDefinitionFor</span><span class="token punctuation">(</span><span class="token class-name">CronType</span><span class="token punctuation">.</span><span class="token constant">QUARTZ</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 2、 解析cron表达式</span>
+        <span class="token class-name">Cron</span> cron <span class="token operator">=</span> parser<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>cronExpression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 3、将解析后的cron表达式转换为ExecutionTime</span>
+        <span class="token class-name">ExecutionTime</span> executionTime <span class="token operator">=</span> <span class="token class-name">ExecutionTime</span><span class="token punctuation">.</span><span class="token function">forCron</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 4、基于executionTime获取到下次任务要执行的时间。而且获取到的时间，最好是java.time下的类。</span>
+        <span class="token class-name">ZonedDateTime</span> nextExecutionTime <span class="token operator">=</span> executionTime<span class="token punctuation">.</span><span class="token function">nextExecution</span><span class="token punctuation">(</span><span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 5、创建任务对象</span>
+        <span class="token class-name">ScheduleTask</span> scheduleTask <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScheduleTask</span><span class="token punctuation">(</span>task<span class="token punctuation">,</span>nextExecutionTime<span class="token punctuation">,</span>executionTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 6、任务添加到ConcurrentHashMap</span>
+        <span class="token comment">// TODO （这里要注意一下，先确保内部没有，咱们再put，忽然会覆盖。）</span>
+        tasks<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>taskName<span class="token punctuation">,</span>scheduleTask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 任务启动
+     * @param taskName
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token class-name">String</span> taskName<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">ScheduleTask</span> scheduleTask <span class="token operator">=</span> tasks<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>taskName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>scheduleTask <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            scheduleTask<span class="token punctuation">.</span>started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+     * 任务暂停
+     * @param taskName
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token class-name">String</span> taskName<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">ScheduleTask</span> scheduleTask <span class="token operator">=</span> tasks<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>taskName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>scheduleTask <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            scheduleTask<span class="token punctuation">.</span>started <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">AsyncScheduleFramework</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 在这个框架创建出来的时候，就开始遍历tasks集合，拿到任务就判断是否到了执行时间，并且isRunning为true，才可以执行。</span>
+        <span class="token class-name">Thread</span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Map<span class="token punctuation">.</span>Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">ScheduleTask</span><span class="token punctuation">&gt;</span></span> taskMap <span class="token operator">:</span> tasks<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// 获取到具体的任务</span>
+                    <span class="token class-name">ScheduleTask</span> task <span class="token operator">=</span> taskMap<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">// 判断执行时间是否满足要求，并且isRunning是否为true</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span>nextExecuteTime<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span><span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span>started <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>task<span class="token punctuation">.</span>running<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token comment">// TODO   获取一波Redis分布式锁的资源，key就可以前缀加任务名称，拿到锁的，才能执行后面的代码。拿锁失败的，就直接计算下次执行的时间</span>
+                        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;各种日志，当前服务的标识，具体的任务名是啥，等等……&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token comment">// 将running设置true，代表要开始执行了</span>
+                        task<span class="token punctuation">.</span>running <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                        <span class="token comment">// 执行时间到了，并且isRunning为true，代表可以执行。</span>
+                        executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                                <span class="token comment">// 执行任务</span>
+                                task<span class="token punctuation">.</span>task<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                                <span class="token comment">// TODO  重试，还是做其他的操作~~~</span>
+                            <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                                <span class="token comment">// 计算任务下次执行的时间</span>
+                                task<span class="token punctuation">.</span><span class="token function">computeNextExecutionTime</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span>nextExecuteTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                task<span class="token punctuation">.</span>running <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token comment">// 现在设计的ConcurrentHashMap作为容器，就是会存在比较大的时间误差，想误差小，就上优先级队列存储任务。线程始终在task先级队列~</span>
+                    <span class="token comment">// 第一版发出来，后面再优化成阻塞队列的形式。。。</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token keyword">yield</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 第一版有点小bug，咱们没排查出来~~~
+     * @param args
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">AsyncScheduleFramework</span> framework <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AsyncScheduleFramework</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        framework<span class="token punctuation">.</span><span class="token function">addTask</span><span class="token punctuation">(</span><span class="token string">&quot;test&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;0/5 * * ? * *&quot;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;任务执行啦，时间：&quot;</span> <span class="token operator">+</span> <span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/*
+     * 1、 首先new  AsyncScheduleFramework，就会开启一个线程，去遍历ConcurrentHashMap
+     * 获取到里面存储的任务
+     * 拿到任务后先判断任务的执行时间是否到了 &amp;&amp; 判断任务现在是否开启  &amp;&amp; 任务是第一次在定时任务执行
+     * 在内部准备开始执行任务。
+     *      1.1 先将第一次任务执行的标识修改掉，确保只执行一次。
+     *      1.2 开启一个线程开始执行任务 ---  任务执行完毕，计算下次执行任务的时间，并且将第一次任务执行的标识重置
+     *
+     * 2、添加任务时的操作。
+     * 基于cron表达式，计算出这个任务下次执行的时间
+     * 封装ScheduleTask任务，并且将任务添加到ConcurrentHashMap集合里。
+     */</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote> <h2 id="第二题当时的问题解决"><a href="#第二题当时的问题解决" class="header-anchor">#</a> 第二题当时的问题解决</h2> <blockquote><p>直接画图说了。</p> <p><img src="/assets/img/b193a0b81a2c47eaa2497a1fe7496be2.0a565fd5.png" alt="image.png"></p> <hr> <p><img src="/assets/img/3549b4a34a5b45c9be34558427f05b6e.6575db12.png" alt="image.png"></p> <hr> <p><img src="/assets/img/b58e314a714f4b0b942bacecd1668f69.0d2de951.png" alt="image.png"></p> <hr> <p><img src="/assets/img/9cd1456b57324db4aa1ba5aa73e30c7e.db13375a.png" alt="image.png"></p> <hr> <p><img src="/assets/img/e927598805cb4343b3094f487b14a1c5.7f694c0f.png" alt="image.png"></p> <hr> <p><img src="/assets/img/642ba3058fef4ba0a03ecd15b83a7f20.c466c6b0.png" alt="image.png"></p> <p>这样问题就出现了，所以解决问题的方式很简单，把判断的顺序更改一下就可以了。</p> <p>将这个顺序</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>task<span class="token punctuation">.</span>nextExecuteTime<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span><span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span>started <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>task<span class="token punctuation">.</span>running<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code></pre></div><p>修改为</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>task<span class="token punctuation">.</span>running <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span>started <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span>nextExecuteTime<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span><span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code></pre></div><p>这样再走上述的逻辑，就不会出现重复执行任务的问题。</p> <p>只要线程池的线程没有执行完毕task.running = false，就不会进入到if的逻辑，哪怕出现了上述图中的逻辑，也会基于时间的第三个判断，进不去if，规避重复问题。</p></blockquote> <h2 id="_3、描述如何使用多线程来处理大数据集-例如在数据分析应用中-将数据拆分成多个部分并行处理-58同城"><a href="#_3、描述如何使用多线程来处理大数据集-例如在数据分析应用中-将数据拆分成多个部分并行处理-58同城" class="header-anchor">#</a> 3、描述如何使用多线程来处理大数据集，例如在数据分析应用中，将数据拆分成多个部分并行处理（58同城）</h2> <blockquote><p>这里最基本的线程池 + CountDownLatch就可以解决，至于代码实现。</p> <p>核心思路自然就将大数据集拆分成多个部分，分别交给线程池去处理，等到所有任务才完成后，汇总即可。</p> <p>实现部署步骤，大致分为几步：</p> <ul><li>首先需要将大数据集拆分成若干部分，比如数据体量在1000W，那可以将每个任务拆分成100W，分别交给线程去处理。</li> <li>还需要计算好任务的个数，利用CountDownLatch来做计数器，确保得知任务是否全部完成。</li> <li>讲封装好的任务投递到线程池中执行。</li> <li>主线程等待任务完毕后，拿到每一个结果进行汇总即可。</li></ul> <p>这里有几个小细节需要考虑。</p> <ul><li>首先是任务的切分，这里需要根据任务的情况来考虑
+<ul><li>如果分析是单纯的CPU密集任务，那需要跟CPU内核个数考虑好，做好测试，如果并行的线程出太多，导致线程的上下文切换，会带来一定的性能损耗。</li> <li>如果分析是IO密集的任务，这种IO密集的任务，线程数需要的数量会大一些，这里具体的线程数需要通过压测去测试，其次如果是JDK21版本，可以考虑引入虚拟线程来提升处理的效率。</li></ul></li> <li>另外就是这种大规模的数据集，JVM内存是否能够一次性装下，如果在内存无法满足一次性获取时，需要做好分批次的处理流程。</li> <li>另外如果数据集的处理之前存在一些前后相互依赖的关系时，做好同步操作的事情，最好的方式，是利用CompletableFuture做好任务的编排工作。</li> <li>还有就是这种异步处理，咱们需要考虑可能存在一些异常问题，提前添加好处理异常的逻辑，出现问题时，要有一个补偿的措施。</li></ul></blockquote> <h2 id="_4、描述如何实现一个网络爬虫-利用多线程并行抓取多个网页-提高数据抓取的效率-百度ai"><a href="#_4、描述如何实现一个网络爬虫-利用多线程并行抓取多个网页-提高数据抓取的效率-百度ai" class="header-anchor">#</a> 4、描述如何实现一个网络爬虫，利用多线程并行抓取多个网页，提高数据抓取的效率（百度AI）</h2> <blockquote><p>咱们面的是Java岗位，别一看爬虫就想Python，首先Python爬数据，确实比Java好，但是Java也能抓一些数据的。</p> <p>爬取数据的整体过程，无非是获取对应的URL，访问URL获取对应的响应信息，Java就是利用Jsoup提供的API对数据进行解析，拿到对应的数据，落库即可。</p> <p>影响抓取数据效率的位置：</p> <ul><li>访问URL的过程。网络IO的时间成本高。</li> <li>利用Jsoup去解析数据时，如果单个URL反馈的数据体量太大，串行解析的成本比较高。</li> <li>URL可能重复，重复获取或者解析数据</li> <li>URL体量比较大，每次解析完都单独落库的话，对应MySQL的压力不小，而且多次找MySQL的网络IO，磁盘IO成本都很高。</li></ul> <p>问题有了，解决起来就方便了。</p> <ul><li>解决URL的网络IO成本，那就是直接线程池并行去访问URL，避免单个线程阻塞长时间等待。多个线程并行去访问URL。</li> <li>每个线程在获取的URL之后，根据单个URL的数据体量考虑，是否需要多个线程并行的利用Jsoup去解析，这里属于CPU密集的业务类型，线程个数不宜太高，当然如果单个URL数据体量不大，这里不需要并行去解析。</li> <li>可以在获取URL之后，甚至是发起请求到URL前，先利用Redis或者本地的CHM，确保访问一次即可，减少重复访问的问题。</li> <li>可以让每个解析完数据的线程，将数据扔到一个阻塞队列里，当数据个数达到一定程度，比如500，比如1000等等，根据具体的情况，做批量入库操作。</li></ul> <p>还可以再考虑点事：</p> <ul><li>做过爬虫的同学们都知道，不能随便爬，最好看看平台提供的rebots文件，确保满足对方的协议。。。</li> <li>毕竟是爬数据嘛，请求的体量不要太大，避免人家有反扒机制，封你IP，不过封IP也不怕，咱们可以上代理高动态IP。</li> <li>比如访问URL失败，做好重试或者是记录的一些操作。</li></ul></blockquote> <h2 id="_5、描述如何在java应用中使用多线程执行数据库的批量插入或更新操作-以提高数据库的写入效率-猫眼"><a href="#_5、描述如何在java应用中使用多线程执行数据库的批量插入或更新操作-以提高数据库的写入效率-猫眼" class="header-anchor">#</a> 5、描述如何在Java应用中使用多线程执行数据库的批量插入或更新操作，以提高数据库的写入效率（猫眼）</h2> <blockquote><p>核心就是任务划分，多线程并行执行批量插入操作。</p> <p>1、你需要根据你的数据集大小以及系统资源情况来合理的划分任务。比如你有10W的数据需要插入，咱们每个线程批量插入1000条数据，那就可以家境任务拆分成100份，让每个线程每次批量插入1000条数据即可。</p> <p>2、准备线程池，内部的线程个数要根据MySQL服务器那边的系统资源考虑，插入操作IO涉及的多一些，CPU资源还好，内存资源和连接数需要重点考虑。</p> <p>可以提前测试批量插入，查看一下MySQL所在服务的负载情况，主要查看越好CPU和内存的资源，不要达到太高的负载。。</p> <p>3、同样，Java端也需要考虑好线程池中的资源，比如阻塞队列，数据体量如果太大，内存能否抗住。线程数也要考虑好CPU的资源情况。</p> <p>一样，也是要做好压测的事情。</p> <p>4、准备好线程池，准备好任务，干活！！！！</p> <hr> <p>毕竟批量跟数据库操作，而且是多线程，需要考虑好死锁的问题。</p> <p>建议事务的隔离级别，上read committed。可以规避掉好多修改和插入并行的死锁问题。。。</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/面试突击班/并发编程2025.html" class="prev">
+        并发编程-2025
+      </a></span> <span class="next"><a href="/面试突击班/并发编程2024.html">
+        并发编程2024-1
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4bcd492b.js" defer></script><script src="/assets/js/2.8fdba881.js" defer></script><script src="/assets/js/1.54dbed7e.js" defer></script><script src="/assets/js/33.b4f5a7a7.js" defer></script>
+  </body>
+</html>
