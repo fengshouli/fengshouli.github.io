@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>redis2025-上 | 冯手力-java学习之路</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.49d708b7.css" as="style"><link rel="preload" href="/assets/js/app.58a2aceb.js" as="script"><link rel="preload" href="/assets/js/2.27fc1d21.js" as="script"><link rel="preload" href="/assets/js/1.7af1411b.js" as="script"><link rel="preload" href="/assets/js/35.00c4d3f2.js" as="script"><link rel="prefetch" href="/assets/js/10.800f8704.js"><link rel="prefetch" href="/assets/js/100.69552bf0.js"><link rel="prefetch" href="/assets/js/101.6a849e4c.js"><link rel="prefetch" href="/assets/js/102.8eb5fa43.js"><link rel="prefetch" href="/assets/js/103.ff74d733.js"><link rel="prefetch" href="/assets/js/104.dce492a7.js"><link rel="prefetch" href="/assets/js/105.9d5a3087.js"><link rel="prefetch" href="/assets/js/106.c54e0318.js"><link rel="prefetch" href="/assets/js/107.aabaf54b.js"><link rel="prefetch" href="/assets/js/108.941524dd.js"><link rel="prefetch" href="/assets/js/109.8c25d70c.js"><link rel="prefetch" href="/assets/js/11.63ee4eb0.js"><link rel="prefetch" href="/assets/js/110.536fe460.js"><link rel="prefetch" href="/assets/js/111.eb9514f6.js"><link rel="prefetch" href="/assets/js/112.815440f3.js"><link rel="prefetch" href="/assets/js/113.b46bf12c.js"><link rel="prefetch" href="/assets/js/114.aee04483.js"><link rel="prefetch" href="/assets/js/115.f79164d8.js"><link rel="prefetch" href="/assets/js/116.cc56da42.js"><link rel="prefetch" href="/assets/js/117.ec998560.js"><link rel="prefetch" href="/assets/js/118.bd69a195.js"><link rel="prefetch" href="/assets/js/119.2a73dfa0.js"><link rel="prefetch" href="/assets/js/12.c913ce61.js"><link rel="prefetch" href="/assets/js/120.0df36916.js"><link rel="prefetch" href="/assets/js/121.dc1162b9.js"><link rel="prefetch" href="/assets/js/13.6e6f9b0e.js"><link rel="prefetch" href="/assets/js/14.e86c478e.js"><link rel="prefetch" href="/assets/js/15.f930ffdc.js"><link rel="prefetch" href="/assets/js/16.08f4a884.js"><link rel="prefetch" href="/assets/js/17.f4606deb.js"><link rel="prefetch" href="/assets/js/18.0d9cfa85.js"><link rel="prefetch" href="/assets/js/19.b4b83dc7.js"><link rel="prefetch" href="/assets/js/20.ac409a55.js"><link rel="prefetch" href="/assets/js/21.6342036c.js"><link rel="prefetch" href="/assets/js/22.5c59f690.js"><link rel="prefetch" href="/assets/js/23.33238a4a.js"><link rel="prefetch" href="/assets/js/24.310d12c4.js"><link rel="prefetch" href="/assets/js/25.9a3254be.js"><link rel="prefetch" href="/assets/js/26.2b154e14.js"><link rel="prefetch" href="/assets/js/27.02c72f5c.js"><link rel="prefetch" href="/assets/js/28.a962a2ba.js"><link rel="prefetch" href="/assets/js/29.238d1c28.js"><link rel="prefetch" href="/assets/js/3.3a5e27c4.js"><link rel="prefetch" href="/assets/js/30.a4a6a67e.js"><link rel="prefetch" href="/assets/js/31.b91df3b4.js"><link rel="prefetch" href="/assets/js/32.c4460c08.js"><link rel="prefetch" href="/assets/js/33.b64dfe09.js"><link rel="prefetch" href="/assets/js/34.b802da49.js"><link rel="prefetch" href="/assets/js/36.77c7b4cc.js"><link rel="prefetch" href="/assets/js/37.faca45d7.js"><link rel="prefetch" href="/assets/js/38.5d5fea06.js"><link rel="prefetch" href="/assets/js/39.91c155f1.js"><link rel="prefetch" href="/assets/js/4.7396f2e4.js"><link rel="prefetch" href="/assets/js/40.7a05a3df.js"><link rel="prefetch" href="/assets/js/41.100cd7ec.js"><link rel="prefetch" href="/assets/js/42.cfa6747b.js"><link rel="prefetch" href="/assets/js/43.a59d0c1e.js"><link rel="prefetch" href="/assets/js/44.409742e1.js"><link rel="prefetch" href="/assets/js/45.953a3dd6.js"><link rel="prefetch" href="/assets/js/46.b7bf4e46.js"><link rel="prefetch" href="/assets/js/47.ac72f122.js"><link rel="prefetch" href="/assets/js/48.6c26246d.js"><link rel="prefetch" href="/assets/js/49.06dc38b1.js"><link rel="prefetch" href="/assets/js/5.e480edfe.js"><link rel="prefetch" href="/assets/js/50.6609b950.js"><link rel="prefetch" href="/assets/js/51.d4bc38c3.js"><link rel="prefetch" href="/assets/js/52.6aa63408.js"><link rel="prefetch" href="/assets/js/53.a591ac85.js"><link rel="prefetch" href="/assets/js/54.c4e6bcf1.js"><link rel="prefetch" href="/assets/js/55.a25de308.js"><link rel="prefetch" href="/assets/js/56.eb55b5bd.js"><link rel="prefetch" href="/assets/js/57.6a51381a.js"><link rel="prefetch" href="/assets/js/58.54fc3e83.js"><link rel="prefetch" href="/assets/js/59.4afa052d.js"><link rel="prefetch" href="/assets/js/6.c2817965.js"><link rel="prefetch" href="/assets/js/60.3dbdce83.js"><link rel="prefetch" href="/assets/js/61.5d4ce66b.js"><link rel="prefetch" href="/assets/js/62.18365e32.js"><link rel="prefetch" href="/assets/js/63.e11fa0d3.js"><link rel="prefetch" href="/assets/js/64.c84596ba.js"><link rel="prefetch" href="/assets/js/65.cb708be3.js"><link rel="prefetch" href="/assets/js/66.111c9fd2.js"><link rel="prefetch" href="/assets/js/67.e41e9fa4.js"><link rel="prefetch" href="/assets/js/68.6bb921cc.js"><link rel="prefetch" href="/assets/js/69.0baf280d.js"><link rel="prefetch" href="/assets/js/7.2ec812a9.js"><link rel="prefetch" href="/assets/js/70.4bc3880c.js"><link rel="prefetch" href="/assets/js/71.2e2be9d4.js"><link rel="prefetch" href="/assets/js/72.1169e310.js"><link rel="prefetch" href="/assets/js/73.c5f3d5e0.js"><link rel="prefetch" href="/assets/js/74.cdb2c807.js"><link rel="prefetch" href="/assets/js/75.c127cd2d.js"><link rel="prefetch" href="/assets/js/76.8c6fceb8.js"><link rel="prefetch" href="/assets/js/77.fe915d22.js"><link rel="prefetch" href="/assets/js/78.5a4e7ee4.js"><link rel="prefetch" href="/assets/js/79.8891039e.js"><link rel="prefetch" href="/assets/js/80.f578d366.js"><link rel="prefetch" href="/assets/js/81.eccca387.js"><link rel="prefetch" href="/assets/js/82.b3c15b87.js"><link rel="prefetch" href="/assets/js/83.5d632069.js"><link rel="prefetch" href="/assets/js/84.91b950b4.js"><link rel="prefetch" href="/assets/js/85.6b28b6e2.js"><link rel="prefetch" href="/assets/js/86.8a38b5dc.js"><link rel="prefetch" href="/assets/js/87.6a2d16d1.js"><link rel="prefetch" href="/assets/js/88.15f262e8.js"><link rel="prefetch" href="/assets/js/89.d8c78d34.js"><link rel="prefetch" href="/assets/js/90.1e75eb57.js"><link rel="prefetch" href="/assets/js/91.bad23576.js"><link rel="prefetch" href="/assets/js/92.28efe242.js"><link rel="prefetch" href="/assets/js/93.0afb79ae.js"><link rel="prefetch" href="/assets/js/94.0bae3348.js"><link rel="prefetch" href="/assets/js/95.6a8cdafa.js"><link rel="prefetch" href="/assets/js/96.f256ae08.js"><link rel="prefetch" href="/assets/js/97.ddcd69b5.js"><link rel="prefetch" href="/assets/js/98.8c9ba9d3.js"><link rel="prefetch" href="/assets/js/99.466b2ceb.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5ad6abc1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.49d708b7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冯手力-java学习之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/面试突击班/" class="nav-link">
+  面试突击班
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/操作/" class="nav-link">
+  操作
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="经验" class="dropdown-title"><span class="title">经验</span> <span class="arrow down"></span></button> <button type="button" aria-label="经验" class="mobile-dropdown-title"><span class="title">经验</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作经验/" class="nav-link">
+  工作经验
+</a></li><li class="dropdown-item"><!----> <a href="/项目经验/" class="nav-link">
+  项目经验
+</a></li></ul></div></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/架构之路/" class="nav-link">
+  架构之路
+</a></div><div class="nav-item"><a href="/领域驱动设计/" class="nav-link">
+  领域驱动设计
+</a></div><div class="nav-item"><a href="/源码解析/" class="nav-link">
+  源码解析
+</a></div><div class="nav-item"><a href="/程序员英语/" class="nav-link">
+  程序员英语
+</a></div><div class="nav-item"><a href="/面试突击班/" class="nav-link">
+  面试突击班
+</a></div><div class="nav-item"><a href="/算法体系/" class="nav-link">
+  算法体系
+</a></div><div class="nav-item"><a href="/用友/" class="nav-link">
+  用友
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB%E7%8F%AD/" aria-current="page" class="sidebar-link">面试突击</a></li><li><a href="/面试突击班/面试表达.html" class="sidebar-link">面试表达</a></li><li><a href="/面试突击班/基础面试题.html" class="sidebar-link">基础面试题</a></li><li><a href="/面试突击班/多线程与IO.html" class="sidebar-link">多线程与IO</a></li><li><a href="/面试突击班/JVM面试突击班2025.html" class="sidebar-link">JVM面试突击班2025-1</a></li><li><a href="/面试突击班/JVM2024-下.html" class="sidebar-link">JVM2024-下</a></li><li><a href="/面试突击班/JVM2024-上.html" class="sidebar-link">JVM2024-上</a></li><li><a href="/面试突击班/redis2025.html" class="active sidebar-link">redis2025-上</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#redis2025-上" class="sidebar-link">redis2025-上</a></li><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#一-redis跟hashmap在结构上的区别" class="sidebar-link">一.Redis跟HashMap在结构上的区别</a></li><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#设计一个社交媒体应用-如何使用redis来实时统计用户的点赞、评论和分享数量" class="sidebar-link">设计一个社交媒体应用，如何使用Redis来实时统计用户的点赞、评论和分享数量</a></li><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#应用中的排行榜功能-如何利用redis来实现" class="sidebar-link">应用中的排行榜功能，如何利用Redis来实现</a></li><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#如何使用redis的发布-订阅功能实现消息通知系统" class="sidebar-link">如何使用Redis的发布/订阅功能实现消息通知系统</a></li><li class="sidebar-sub-header"><a href="/面试突击班/redis2025.html#redis其他的场景设计" class="sidebar-link">Redis其他的场景设计</a></li></ul></li><li><a href="/面试突击班/redis2024-下.html" class="sidebar-link">redis2024-下</a></li><li><a href="/面试突击班/redis2024-上.html" class="sidebar-link">redis2024-上</a></li><li><a href="/面试突击班/Mysql.html" class="sidebar-link">Mysql</a></li><li><a href="/面试突击班/Mysql2024-下.html" class="sidebar-link">MySQL2024-下</a></li><li><a href="/面试突击班/并发编程2025.html" class="sidebar-link">并发编程-2025</a></li><li><a href="/面试突击班/并发编程场景面试题2025.html" class="sidebar-link">并发编程场景解决方案面试题2025</a></li><li><a href="/面试突击班/并发编程2024.html" class="sidebar-link">并发编程2024-1</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="redis2025-上"><a href="#redis2025-上" class="header-anchor">#</a> redis2025-上</h2> <h2 id="一-redis跟hashmap在结构上的区别"><a href="#一-redis跟hashmap在结构上的区别" class="header-anchor">#</a> 一.Redis跟HashMap在结构上的区别</h2> <p><strong>Redis</strong></p> <ul><li><strong>定位</strong> ：Redis 是一个高性能的分布式内存数据库，支持多种数据结构（如 String、Hash、List、Set、Sorted Set 等），并提供持久化、主从复制、哨兵模式、集群模式等功能。</li> <li><strong>适用场景</strong> ：
+<ul><li>缓存：作为缓存层，加速数据访问。</li> <li>分布式锁：利用 Redis 的原子操作实现分布式锁。</li> <li>消息队列：利用 List 或 Stream 实现简单的消息队列。</li> <li>排行榜：利用 Sorted Set 实现实时排行榜。</li> <li>地理位置：利用 Geo 模块存储和查询地理位置信息。</li></ul></li> <li><strong>特点</strong> ：
+<ul><li>支持分布式部署，适合高并发、高可用的场景。</li> <li>支持数据持久化，避免数据丢失。</li> <li>支持多种数据结构，功能丰富。</li></ul></li></ul> <p><strong>HashMap</strong></p> <ul><li><p><strong>定位</strong> ：HashMap 是 Java 中的一种数据结构，基于哈希表实现，用于存储键值对。</p></li> <li><p><strong>适用场景</strong> ：</p> <ul><li>单机内存缓存：适合小规模数据的快速查询和存储。</li> <li>临时数据存储：适合在程序运行期间存储临时数据。</li> <li>数据索引：适合通过键快速查找值。</li></ul></li> <li><p><strong>特点</strong> ：</p> <ul><li>单机内存存储，不支持分布式。</li> <li>数据结构简单，功能单一。</li> <li>性能高，但受限于单机内存大小。</li></ul> <h2 id="设计一个社交媒体应用-如何使用redis来实时统计用户的点赞、评论和分享数量"><a href="#设计一个社交媒体应用-如何使用redis来实时统计用户的点赞、评论和分享数量" class="header-anchor">#</a> 设计一个社交媒体应用，如何使用Redis来实时统计用户的点赞、评论和分享数量</h2> <p>一般推荐使用Redis的Hash数据类型来做：</p> <p>增加点赞数：</p> <p>Redis命令</p> <div class="language- extra-class"><pre class="language-text"><code>HINCRBY question:123 likes 1
+</code></pre></div><p>Springboot的Redis的API</p> <div class="language- extra-class"><pre class="language-text"><code> HashOperations&lt;String, String, Integer&gt; hashOperations;
+ hashOperations = redisTemplate.opsForHash();
+ hashOperations.increment(&quot;question:123&quot;, &quot;likes&quot;, 1);
+
+</code></pre></div><p>具体的代码：</p> <p><img src="data:image/png;base64,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" alt="image.png"></p></li></ul> <h2 id="应用中的排行榜功能-如何利用redis来实现"><a href="#应用中的排行榜功能-如何利用redis来实现" class="header-anchor">#</a> 应用中的排行榜功能，如何利用Redis来实现</h2> <ul><li><strong>Redis 按日期存储数据</strong> ：每天的数据存储在一个独立的 Key 中，方便按天统计和清理。</li> <li><strong>定时任务汇总数据</strong> ：每天凌晨将前 7 天的数据汇总到 <code>ranking:7days_summary</code> 中。</li> <li><strong>清理旧数据</strong> ：定时任务会清理超过 7 天的旧数据，避免 Redis 内存占用过多。</li> <li><strong>查询排行榜</strong> ：直接从汇总 Key 中获取前 7 天的排行榜数据。</li></ul> <p>这种方式既能保证排行榜的实时性，又能高效地统计和查询前 7 天的数据，适合需要长期保存排行榜数据的场景</p> <p><img src="/assets/img/ceb820d6ffc6c91f547d5eedc3edb77e.9a0df37b.png" alt="image.png"></p> <h2 id="如何使用redis的发布-订阅功能实现消息通知系统"><a href="#如何使用redis的发布-订阅功能实现消息通知系统" class="header-anchor">#</a> 如何使用Redis的发布/订阅功能实现消息通知系统</h2> <p><img src="/assets/img/97115afde2dac566dff41f0ea3c37a3d.ac4db107.png" alt="image.png"></p> <p>Redis 的发布/订阅（Pub/Sub）功能可以实现一个轻量级的消息通知系统，支持不同模块之间的实时通信。</p> <p>核心概念</p> <ul><li><strong>频道（Channel）</strong> ：消息的发布和订阅基于频道。每个模块可以订阅一个或多个频道。</li> <li><strong>发布者（Publisher）</strong> ：向频道发送消息的模块。</li> <li><strong>订阅者（Subscriber）</strong> ：从频道接收消息的模块。</li></ul> <p>多级缓存架构</p> <p>在高性能的服务项目中，我们一般会将一些热点数据存储到 Redis这类缓存中间件中，只有当缓存的访问没有命中时再查询数据库。在提升访问速度的同时，也能降低数据库的压力。</p> <p>但是在一些场景下单纯使用 Redis 的分布式缓存不能满足高性能的要求，所以还需要加入使用本地缓存Caffeine，从而再次提升程序的响应速度与服务性能。于是，就产生了使用本地缓存（Caffeine）作为一级缓存，再加上分布式缓存（Redis）作为二级缓存的两级缓存架构。</p> <p><img src="/assets/img/dd14d2b90bcc08d9c17737d3f707bef2.a5ccf886.png" alt="image.png"></p> <p>就是如果一个应用修改了缓存，另外一个应用的caffeine缓存是没有办法感知的，所以这里就会有缓存的一致性问题</p> <p><img src="/assets/img/be3dc873d0e0920a094c3cb4e4149312.fa8b4bc9.png" alt="image.png"></p> <p>解决方案也很简单，就是在Redis中做一个发布和订阅。</p> <p>遇到修改缓存的处理，需要向对应的频道发布一条消息，然后应用同步监听这条消息，有消息则需要删除本地的Caffeine缓存。</p> <p>核心代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>CacheAspect类
+ //强制更新
+        if (annotation.type()== CacheType.PUT){
+            Object object = point.proceed();
+            redisTemplate.opsForValue().set(realKey, object,annotation.l2TimeOut(), TimeUnit.SECONDS);
+            cache.put(realKey, object);
+            // 发送消息到Redis频道(让其他应用把Caffeine缓存失效掉)
+            redisTemplate.convertAndSend(&quot;cacheUpdateChannel&quot;, realKey);
+            log.info(&quot;cacheUpdateChannel:&quot;+realKey);
+            return object;
+        }
+ //删除
+        else if (annotation.type()== CacheType.DELETE){
+            redisTemplate.delete(realKey);
+            cache.invalidate(realKey);
+            // 发送消息到Redis频道(让其他应用把Caffeine缓存失效掉)
+            redisTemplate.convertAndSend(&quot;cacheUpdateChannel&quot;, realKey);
+            log.info(&quot;cacheUpdateChannel:&quot;+realKey);
+            return point.proceed();
+        }
+  log.info(&quot;get data from database&quot;);
+        Object object = point.proceed();
+        if (Objects.nonNull(object)){
+            //写入Redis
+            redisTemplate.opsForValue().set(realKey, object,annotation.l2TimeOut(), TimeUnit.SECONDS);
+            //写入Caffeine
+            cache.put(realKey, object);
+            // 发送消息到Redis频道(让其他应用把Caffeine缓存失效掉)
+            redisTemplate.convertAndSend(&quot;cacheUpdateChannel&quot;, realKey);
+            log.info(&quot;cacheUpdateChannel:&quot;+realKey);
+        }
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>package com.msb.caffeine.config;
+
+import com.msb.caffeine.service.RedisMessageListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.listener.ChannelTopic;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+@Configuration
+public class RedisConfig {
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(); // 需要设置主机名，端口，密码等参数
+    }
+
+    @Bean
+    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
+        template.setConnectionFactory(redisConnectionFactory);
+
+        // 使用Jackson2JsonRedisSerializer来序列化和反序列化对象
+        GenericJackson2JsonRedisSerializer jackson2JsonRedisSerializer = new GenericJackson2JsonRedisSerializer();
+
+        // 设置键序列化器
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new StringRedisSerializer());
+
+        // 设置值序列化器
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
+    RedisMessageListenerContainer container(RedisConnectionFactory factory, RedisMessageListener listener) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(factory);
+        container.addMessageListener(listener, new ChannelTopic(&quot;cacheUpdateChannel&quot;));
+        return container;
+    }
+}
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>package com.msb.caffeine.service;
+
+import com.github.benmanes.caffeine.cache.Cache;
+import com.msb.caffeine.service.impl.UserService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.Message;
+import org.springframework.data.redis.connection.MessageListener;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@Component
+public class RedisMessageListener  implements MessageListener {
+
+    @Autowired
+    private Cache cache;
+
+    //这里就是应用接收到了（要删除缓存的策略）： 这里就强制删除Caffeine中的缓存数据
+    @Override
+    public void onMessage(Message message, byte[] pattern) {
+        String cacheKey = new String(message.getBody());
+        if(!cacheKey.equals(&quot;&quot;)){
+            log.info(&quot;invalidate:&quot;+cacheKey);
+            cache.invalidate(cacheKey);
+        }
+    }
+}
+
+</code></pre></div><h2 id="redis其他的场景设计"><a href="#redis其他的场景设计" class="header-anchor">#</a> Redis其他的场景设计</h2> <p><strong>如何使用Redis的地理位置功能（Geo）来实现XXX</strong></p> <p>使用 Redis 的 Geo 功能来实现 <strong>“附近的人”</strong> 或 <strong>“附近的商家“</strong></p> <p>Redis 的 Geo 功能基于 <strong>Sorted Set（ZSET）</strong> 实现，提供了以下核心命令：</p> <ul><li><strong><code>GEOADD</code></strong> ：添加地理位置（经纬度）到指定的 Key 中。</li> <li><strong><code>GEODIST</code></strong> ：计算两个位置之间的距离。</li> <li><strong><code>GEORADIUS</code></strong> ：查询指定半径范围内的位置。</li> <li><strong><code>GEORADIUSBYMEMBER</code></strong> ：以某个成员为中心，查询指定半径范围内的位置。</li> <li><strong><code>GEOHASH</code></strong> ：获取某个位置的 Geohash 值。</li></ul> <p><img src="data:image/png;base64,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" alt="image.png"></p> <p><strong>基于 Redis 的秒杀系统，如何解决超卖问题？</strong></p> <p>具体见代码</p> <p><strong>基于 Redis 的短链接生成系统</strong></p> <ul><li><p><strong>使用 Redis 的自增 ID</strong> ：通过 Redis 的 <code>INCR</code> 命令生成唯一的短链接 ID。</p></li> <li><p><strong>Base62 编码</strong> ：将自增 ID 转换为短链接字符串。</p> <div class="language- extra-class"><pre class="language-text"><code>package com.msb.caffeine.redisDemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
+
+import java.util.Base64;
+
+@Service
+public class ShortUrlService {
+
+    private static final String SHORT_URL_KEY = &quot;short_url:id&quot;; // 自增 ID Key
+
+    @Autowired
+    private RedisTemplate&lt;String, String&gt; redisTemplate;
+
+    /**
+     * 生成短链接
+     *
+     * @param longUrl 原始链接
+     * @return 短链接
+     */
+    public String generateShortUrl(String longUrl) {
+        // 生成自增 ID
+        long id = redisTemplate.opsForValue().increment(SHORT_URL_KEY, 1);
+
+        // Base62 编码
+        String shortUrl = Base64.getEncoder().encodeToString(String.valueOf(id).getBytes());
+
+        // 存储映射关系
+        redisTemplate.opsForValue().set(&quot;short_url:&quot; + shortUrl, longUrl);
+
+        return shortUrl;
+    }
+
+    /**
+     * 获取原始链接
+     *
+     * @param shortUrl 短链接
+     * @return 原始链接
+     */
+    public String getLongUrl(String shortUrl) {
+        return redisTemplate.opsForValue().get(&quot;short_url:&quot; + shortUrl);
+    }
+}
+</code></pre></div></li></ul> <p><strong>基于 Redis 的分布式 Session 管理系统</strong></p> <ul><li><strong>使用 Redis 存储 Session</strong> ：将 Session 数据存储在 Redis 中，Key 为 Session ID，Value 为 Session 数据。</li> <li><strong>设置过期时间</strong> ：通过 Redis 的 <code>EXPIRE</code> 命令设置 Session 的过期时间。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/面试突击班/JVM2024-上.html" class="prev">
+        JVM2024-上
+      </a></span> <span class="next"><a href="/面试突击班/redis2024-下.html">
+        redis2024-下
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.58a2aceb.js" defer></script><script src="/assets/js/2.27fc1d21.js" defer></script><script src="/assets/js/1.7af1411b.js" defer></script><script src="/assets/js/35.00c4d3f2.js" defer></script>
+  </body>
+</html>
